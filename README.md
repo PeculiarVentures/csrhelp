@@ -1,4 +1,4 @@
-# csrhelp - A site that helps users generate SSL certificate requests
+# A site that helps users generate SSL certificate requests
 
 ### Overview
 This site helps people create certificate requests that they can use to request SSL certificates, it provides sample command lines for the following tools:
