@@ -1,0 +1,407 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+  margin: 0px 0px 100px;
+  height:auto;
+}
+
+/* Toolbar area */
+
+.menu {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px;
+  width: 36px;
+}
+
+md-toolbar h1 {
+  margin: 20px auto;
+}
+
+/* Sidenav area */
+
+md-list .md-button {
+  color: inherit;
+  font-weight: 500;
+  text-align: left;
+}
+  md-list .md-button.selected {
+    color: #03a9f4;
+  }
+
+  md-sidenav  md-list {
+    padding: 0px 0px 8px 0px;
+  }
+
+
+/* Primary content area */
+
+#content {
+  overflow: hidden;
+}
+
+#content  {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+}
+
+#content .md-button.contact {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  margin: 8px auto 16px 0;
+  position: absolute;
+  top: 10px;
+  right: 40px;
+}
+
+#content md-icon.avatar {
+  margin-top: 10px;
+}
+
+#content .md-button.contact > md-icon {
+  fill:black;
+  width:36px;
+  height:36px;
+}
+
+md-button.menuBtn > md-icon {
+  fill:white;
+  width:24px;
+  height:24px;
+}
+
+#content .md-button.contact:active > md-icon {
+  background-color: #dadada;
+  border-radius: 75%;
+  padding:4px;
+  transition: all 100ms ease-out 30ms;
+}
+
+#content img {
+  display: block;
+  height: auto;
+  max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper {
+  position: relative;
+}
+
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+}
+
+.avatar {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom:0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.70);
+  -moz-transform:scale(0.70);
+}
+
+
+md-bottom-sheet  md-icon {
+  margin-right:20px;
+}
+
+span.name {
+  font-weight: bold;
+  font-size:1.1em;
+  padding-left:5px;
+}
+
+
+md-toolbar:not(.md-menu-toolbar) {
+	background-color: #344f89;
+	min-height: auto !important;
+}
+
+md-toolbar h1 {
+	line-height:50px;
+}
+
+.dividerdemoBasicUsage .face {
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  width: 48px;
+  margin: 16px; 
+}
+
+.question_answer_area md-toolbar:not(.md-menu-toolbar),
+#request-form md-toolbar:not(.md-menu-toolbar),
+#result md-toolbar:not(.md-menu-toolbar) {
+	background-color: #24375d;
+}
+
+.question_answer_area md-toolbar:not(.md-menu-toolbar) {
+	margin-bottom:10px;
+}
+
+.inputdemoBasicUsage .md-datepicker-button {
+  width: 36px; 
+}
+
+.listdemoBasicUsage md-divider {
+  margin-top: 10px;
+  margin-bottom: 10px; 
+}
+
+.inputdemoErrors .inputErrorsApp {
+  min-height: 48px;
+}
+
+.FAQ_section {
+    padding: 20px 0px;
+    text-align: left;
+    
+}
+
+.FAQ_section .question_answer_area {
+    width: 1024px;
+    margin: 0px auto;
+}
+
+.FAQ_section h2 {
+    /*margin: 0px;
+    font-size: 40px;
+    color: #344f89;
+    font-family: 'Segoe UI Light','Segoe UI';
+    font-weight: 100;
+    margin-bottom: 50px;*/
+}
+
+.FAQ_section .question_answer.first_question {
+    padding-top: 0px;
+}
+.FAQ_section .question_answer {
+    border-bottom: 1px solid #d2d2d2;
+    display: inline-block;
+    padding-bottom: 45px;
+    padding-top: 45px;
+    padding-left:10px;
+}
+
+.FAQ_section .question_answer .question {
+    width: 50%;
+    float: left;
+}
+
+.FAQ_section .question_answer .question .q_block {
+    width: 54px;
+    height: 54px;
+    display: inline-block;
+    background-color: #0078D7;
+    margin-right: 25px;
+}
+
+.FAQ_section .question_answer .question .q_block p, .FAQ_section .question_answer .answer .a_block p {
+    font-family: 'Segoe UI Light','Segoe UI';
+    color: #fff;
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    padding-top: 5px;
+    margin: 0px;
+}
+
+.FAQ_section .question_answer .question .q_details {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 90px);
+}
+
+.FAQ_section .question_answer .answer {
+    width: 50%;
+    float: left;
+}
+
+.FAQ_section .question_answer .answer .a_block {
+    width: 54px;
+    height: 54px;
+    display: inline-block;
+    background-color: #107c10;
+    margin-right: 25px;
+    
+}
+
+.FAQ_section .question_answer .answer .a_details {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 110px);
+}
+
+.transparencyhub_container {
+    width: 1024px;
+    margin: 0px auto;
+}
+
+.FAQ_section .question_answer .question .q_details p {
+    font-family: 'Segoe UI Light','Segoe UI';
+    color: #505050;
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 32px;
+    width: 100%;
+    margin: 0px;
+    margin-top: -6px;
+}
+
+.FAQ_section .question_answer .answer .a_details p {
+    font-family: 'Segoe UI Light','Segoe UI';
+    color: #505050;
+    font-size: 18px;
+    font-weight: 100;
+    width: 100%;
+    margin: 0px;
+    margin-top: -4px;
+}
+
+md-list-item.md-3-line, md-list-item.md-3-line>.md-no-style {
+	height:auto;
+	position:relative;
+	padding-right:40%;
+}
+
+.transparencyhub_container,
+#result, 
+#request-form {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    -webkit-transition: 0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
+    transition: 0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
+    position: relative;
+    padding-bottom: 0;
+    width:100%;    
+    margin: 3% auto;
+    max-width:1024px;
+}
+
+#result {
+	margin-top:0;
+}
+
+.md-whiteframe-4dp, .md-whiteframe-z2 {
+	box-shadow:none;
+}
+
+md-list-item .md-list-item-inner .md-secondary, md-list-item .md-list-item-inner .md-secondary-container, md-list-item .md-secondary, md-list-item .md-secondary-container {
+    margin-left: 16px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    -webkit-transform: translate3d(0,-50%,0);
+    transform: translate3d(0,-50%,0);
+}
+
+md-list-item.md-2-line .md-list-item-text, md-list-item.md-2-line>.md-no-style .md-list-item-text, md-list-item.md-3-line .md-list-item-text, md-list-item.md-3-line>.md-no-style .md-list-item-text {
+	padding:10px;
+}
+.md-button {
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: currentColor;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    outline: 0;
+    border: 0;
+    display: inline-block;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 6px;
+    margin: 6px 8px;
+    line-height: 36px;
+    min-height: 36px;
+    background: 0 0;
+    white-space: nowrap;
+    min-width: 88px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: inherit;
+    font-variant: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+}
+.md-button {
+    letter-spacing: .01em;
+}
+button, input, select, textarea {
+    font-size: 100%;
+}
+
+md-list md-list-item.md-2-line .md-list-item-text p, md-list md-list-item.md-3-line .md-list-item-text p {
+	max-width:60%;
+}
+
+md-input-container:not(.md-input-has-value) input:not(:focus), md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-ampm-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-day-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-hour-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-millisecond-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-minute-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-month-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-second-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-text, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-week-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-year-field {
+	color:white;
+}
+
+.md-docs-dark-theme {
+	padding-bottom:0px;
+}
+
+@media screen and (max-width:1024px) {
+	.FAQ_section .question_answer .question {
+		float:none;
+		width:100%;
+	}
+	
+	.FAQ_section .question_answer .answer {
+		float: left;
+    		margin-top: 20px;
+    		width:100%
+	}
+	
+	.transparencyhub_container {
+	    width: auto;
+	    margin: 0px auto;
+	}
+	.FAQ_section .question_answer_area {
+	    width: auto;
+	    margin: 0px auto;
+	}
+	.FAQ_section .question_answer {
+	    width: 100%;
+	}		
+}
+
+@media screen and (min-width:500px) {
+	.hostname_input {
+		width:500px;
+	}		
+}
+
+pre {
+	border:0px;
+	white-space: pre-wrap;
+}

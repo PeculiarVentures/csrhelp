@@ -1,0 +1,12 @@
+<h2 class="md-display-1">Faqs</h2>
+
+<md-content role="navigation" class="md-list" >
+    <li ng-repeat="faq in faqs" style="cursor:pointer;" ng-click="faq.toggle=='show'?faq.toggle='hide':faq.toggle='show'">
+      <h3 class="md-title">
+        {{faq.title}}
+      </h3>
+      <p class="md-body-2" ng-if="faq.toggle=='show'">{{faq.content}}</p>
+    </li>
+</ul>
+
+</md-content>

@@ -1,0 +1,16 @@
+<md-bottom-sheet class="md-list md-has-header">
+
+    <md-subheader>
+       	<span class="info">&copy;2015 GlobalSign in affiliation with X509 Labs <a href="https://www.globalsign.co.uk/repository/globalsign-privacy-policy.pdf">View GlobalSign Privacy Policy</a></span>
+    </md-subheader>
+
+    <md-list>
+      <md-item ng-repeat="item in cp.actions">
+        <md-button ng-click="cp.submitContact(item)" id="item_{{$index}}">
+            <md-icon md-svg-icon="{{ item.icon_url }}"></md-icon>
+            {{item.name}}
+        </md-button>
+      </md-item>
+    </md-list>
+
+</md-bottom-sheet>
