@@ -20,7 +20,7 @@ The ***CSR Helper*** application helps users generate a certificate requests for
 *  F5 Big-IP
 *  IIS
 
-It also uses [PKIjs](https://pkijs.org] to directly generate keys and certificate requests using [WebCrypto](http://www.w3.org/TR/WebCryptoAPI/).
+It also uses [PKIjs](https://pkijs.org) to directly generate keys and certificate requests using [WebCrypto](http://www.w3.org/TR/WebCryptoAPI/).
 
 
 ## Getting Started
