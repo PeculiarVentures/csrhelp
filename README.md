@@ -28,7 +28,7 @@ It also uses [PKIjs](https://pkijs.org) to directly generate keys and certificat
 To get you started you can simply clone `master` branch from the
 [CSR Help](https://github.com/PeculiarVentures/csrhelp.git) repository and install the dependencies:
 
-Clone the material-start repository using [git][git]:
+Clone the csrhelp repository using [git][git]:
 
 ```
 git clone https://github.com/PeculiarVentures/csrhelp.git
