@@ -8,7 +8,7 @@ Below is a snapshot of the CSR Help page, the page is responsive and works well 
 
 <br/>
 
-<Insert picture when complete>
+-> Insert picture when complete <-
 
 <br/>
 
@@ -28,7 +28,7 @@ It also uses [PKIjs](https://pkijs.org) to directly generate keys and certificat
 To get you started you can simply clone `master` branch from the
 [CSR Help](https://github.com/PeculiarVentures/csrhelp.git) repository and install the dependencies:
 
-Clone the csrhelp repository using [git][git]:
+Clone the csrhelp repository using git:
 
 ```
 git clone https://github.com/PeculiarVentures/csrhelp.git
