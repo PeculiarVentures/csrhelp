@@ -72,10 +72,10 @@ bower update
 
 ## Related
 
-[angular](http://angularjs.org/)
-[angular material](https://material.angularjs.org/)
-[pkijs](https://pkijs.org)
-[git](http://git-scm.com/)
-[bower](http://bower.io)
-[npm](https://www.npmjs.org/)
+- [angular](http://angularjs.org/)
+- [angular material](https://material.angularjs.org/)
+- [pkijs](https://pkijs.org)
+- [git](http://git-scm.com/)
+- [bower](http://bower.io)
+- [npm](https://www.npmjs.org/)
 
