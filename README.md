@@ -8,7 +8,7 @@ Below is a snapshot of the CSR Help page, the page is responsive and works well 
 
 <br/>
 
--> Insert picture when complete <-
+![image](https://cloud.githubusercontent.com/assets/1619279/11449695/55ec4b9e-9534-11e5-9c89-c299ab0e65f5.png)
 
 <br/>
 
@@ -20,7 +20,8 @@ The ***CSR Helper*** application helps users generate a certificate requests for
 *  F5 Big-IP
 *  IIS
 
-It also uses [PKIjs](https://pkijs.org) to directly generate keys and certificate requests using [WebCrypto](http://www.w3.org/TR/WebCryptoAPI/).
+
+It supports both ECC and RSA certificate requests and also uses [PKIjs](https://pkijs.org) to directly generate keys and certificate requests using [WebCrypto](http://www.w3.org/TR/WebCryptoAPI/).
 
 
 ## Getting Started
