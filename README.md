@@ -4,7 +4,7 @@
 
 ### What does it look like?
 
-Below is a snapshot of the CSR Help page, the page is responsive and works well on mobile and tablet devices.
+Below is a snapshot of ***CSR Helper***, the page is responsive and works well on mobile and tablet devices.
 
 <br/>
 
