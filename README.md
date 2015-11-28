@@ -4,7 +4,7 @@
 
 ### What does it look like?
 
-Below is a snapshot of ***CSR Helper***, the page is responsive and works well on mobile and tablet devices.
+Below is a snapshot of ***CSR Helper***. It is responsive and works well on mobile and tablet devices.
 
 <br/>
 
@@ -21,8 +21,7 @@ The ***CSR Helper*** application helps users generate a certificate requests for
 *  IIS
 
 
-It supports both ECC and RSA certificate requests and also uses [PKIjs](https://pkijs.org) to directly generate keys and certificate requests using [WebCrypto](http://www.w3.org/TR/WebCryptoAPI/).
-
+It supports both ECC and RSA certificate requests and will use use [WebCrypto](http://www.w3.org/TR/WebCryptoAPI/) and [PKIjs](https://pkijs.org) to directly generate keys and certificate requests if the browser supports it.
 
 ## Getting Started
 
