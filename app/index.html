@@ -58,8 +58,8 @@
 					<md-input-container>
 						<md-input-container class="hostname_input">
 							<label>Hostname</label>
-							<input ng-model="certificate.hostname" name="hostname" ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" required  ng-keyup="hostname_change();" id="hostname">
-							<div ng-messages="certificateForm.hostname.$error">
+							<input ng-model="certificate.common_name" name="common_name" ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" required  ng-keyup="hostname_change();" id="common_name">
+							<div ng-messages="certificateForm.common_name.$error">
 								<div ng-message="required">This is required.</div>
 								<div ng-message="pattern">This should be a a hostname.</div>
 							</div>
@@ -118,7 +118,7 @@
 				</md-content>
 			</form>
 		</div>
-		<div id="result" ng-if="certificate.hostname && certificate.algorithm && certificate.keysize">
+		<div id="result" ng-if="certificate.common_name && certificate.algorithm && certificate.keysize">
 			<md-toolbar class="md-theme-light">
 				<h2 class="md-toolbar-tools">
 					<span>Results</span>
