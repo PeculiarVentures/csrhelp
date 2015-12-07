@@ -563,7 +563,7 @@
 	                    var result_string = "\r\n-----BEGIN PRIVATE KEY-----\r\n";
 	                    result_string = result_string + $scope.formatPEM(window.btoa(private_key_string));
 	                    result_string = result_string + "\r\n-----END PRIVATE KEY-----";
-				
+
 	                    $scope.messages[6].privateKey= result_string;
 	                },
 	                function(error)
@@ -661,7 +661,7 @@
 	    		else
 	    			$scope.certificate.filehostname = $scope.certificate.hostname;
 
-			$($event.currentTarget).attr('href','data:application/pkcs8;charset=utf-8;base64,'+$scope.messages[6].privateKey).attr('download', $scope.certificate.filehostname+'.key');
+			$($event.currentTarget).attr('href','data:application/pkcs8;base64,'+$scope.messages[6].privateKey).attr('download', $scope.certificate.filehostname+'.key');
 
 		}
 		$scope.hostname_change = function($event) {
