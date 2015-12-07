@@ -449,7 +449,7 @@
                     		if("hash" in algorithm.algorithm)
                         		algorithm.algorithm.hash.name = hash_algorithm;
 				
-				algorithm.algorithm.modulesLength = keylength;
+				algorithm.algorithm.modulusLength = keylength;
 				
 	                    return crypto.generateKey(algorithm.algorithm, true, algorithm.usages);
 	                }
