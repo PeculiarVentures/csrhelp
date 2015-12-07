@@ -645,6 +645,7 @@
 	    			$scope.certificate.filehostname = $scope.certificate.common_name;
 
 			$($event.currentTarget).attr('href','data:application/pkcs8;charset=utf-8;base64,'+encodeURIComponent($scope.messages[6].privateKey)).attr('download', $scope.certificate.filehostname+'.key');
+			console.log('data:application/pkcs8;charset=utf-8;base64,'+encodeURIComponent($scope.messages[6].privateKey))
 
 		}
 		$scope.hostname_change = function($event) {
