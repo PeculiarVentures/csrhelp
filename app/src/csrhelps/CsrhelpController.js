@@ -454,7 +454,7 @@
 	                    if("hash" in algorithm.algorithm)
 	                        algorithm.algorithm.hash.name = hash_algorithm;
 	                    // #endregion 
-				algorithm.algorithm.modulusLength = keylength;
+				algorithm.algorithm.namedCurve = keylength;
 				
 	                    console.log(algorithm.algorithm);
 	                    return crypto.generateKey(algorithm.algorithm, true, algorithm.usages);
