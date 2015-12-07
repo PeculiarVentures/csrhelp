@@ -465,8 +465,6 @@
 					algorithm.algorithm.namedCurve = keylength;
 					break;
 		            }
-		            
-	                    console.log(algorithm.algorithm);
 	                    
 	                    return crypto.generateKey(algorithm.algorithm, true, algorithm.usages);
 	                }
