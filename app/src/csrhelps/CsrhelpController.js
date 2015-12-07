@@ -672,7 +672,6 @@
 	    		else
 	    			$scope.certificate.filehostname = $scope.certificate.hostname;
 
-	                //console.log('data:application/pkcs8;base64,'+encodeURIComponent($scope.messages[6].privateKey));
 			$($event.currentTarget).attr('href','data:application/pkcs8,'+encodeURIComponent($scope.messages[6].privateKey)).attr('download', $scope.certificate.filehostname+'.key');
 
 		}
