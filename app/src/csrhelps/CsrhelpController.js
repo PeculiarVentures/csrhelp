@@ -561,6 +561,7 @@
 	                    var result_string = "\r\n-----BEGIN PRIVATE KEY-----\r\n";
 	                    result_string = result_string + $scope.formatPEM(window.btoa(private_key_string));
 	                    result_string = result_string + "\r\n-----END PRIVATE KEY-----";
+	                    console.log(result_string);
 				
 	                    $scope.messages[6].privateKey= result_string;
 	                },
