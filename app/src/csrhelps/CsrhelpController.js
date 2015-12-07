@@ -416,8 +416,8 @@
 					keylength = "P-384";
 					break;
 				case 'secp521r1':
-				 	keylength = "P-521";
-				 	break;
+					keylength = "P-521";
+					break;
 	                    }
 	                    break;
 	                default:;
@@ -449,14 +449,25 @@
 	            sequence = sequence.then(
 	                function()
 	                {
-	                    // #region Get default algorithm parameters for key generation 
+	                    // Set hash algorithm
 	                    var algorithm = org.pkijs.getAlgorithmParameters(signature_algorithm_name, "generatekey");
 	                    if("hash" in algorithm.algorithm)
 	                        algorithm.algorithm.hash.name = hash_algorithm;
 	                    // #endregion 
-				algorithm.algorithm.namedCurve = keylength;
-				
+
+	                    // Set key length	                    
+		            switch($scope.certificate.algorithm)
+		            {
+		                case "RSA":
+					algorithm.algorithm.modulusLength = keylength;
+					break;
+		                case "ECC":
+					algorithm.algorithm.namedCurve = keylength;
+					break;
+		            }
+		            
 	                    console.log(algorithm.algorithm);
+	                    
 	                    return crypto.generateKey(algorithm.algorithm, true, algorithm.usages);
 	                }
 	                );
@@ -661,6 +672,7 @@
 	    		else
 	    			$scope.certificate.filehostname = $scope.certificate.hostname;
 
+	                console.log('data:application/pkcs8;base64,'+$scope.messages[6].privateKey).attr('download'));
 			$($event.currentTarget).attr('href','data:application/pkcs8;base64,'+$scope.messages[6].privateKey).attr('download', $scope.certificate.filehostname+'.key');
 
 		}
