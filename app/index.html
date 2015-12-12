@@ -41,14 +41,6 @@
           display: none !important;
         }
     </style>
-    
-    <script>    	
-    	$(document).ready(function() {
-    		setTimeout(function() {
-	    		$('form:first *:input[type!=hidden]:first').focus();
-	    	}, 800);  
-	});
-    </script>
 
   </head>
 
@@ -357,6 +349,14 @@
     <script src="assets/js/ZeroClipboard.js"></script>
     <script src="assets/js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="assets/js/angular-material.min.js"></script>
+    
+    <script>    	
+    	$(document).ready(function() {
+    		setTimeout(function() {
+	    		$('form:first *:input[type!=hidden]:first').focus();
+	    	}, 300);  
+	});
+    </script>
     
     <script src="assets/js/pkijs/common.js"></script>
     <script src="assets/js/pkijs/asn1.js"></script>
