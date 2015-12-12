@@ -200,6 +200,24 @@
 							<p>Q</p>
 						</div>
 						<div class="q_details">
+							<p>Should I use a ECC or RSA certificate?</p>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="a_block">
+							<p>A</p>
+						</div>
+						<div class="a_details">
+							<p><a href="https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/">ECC works on different principles</a> than RSA. This different approach results in a dramatic performance improvement. With ECDSA you get as much as a 23x performance improvement for signatures. This can help your site handle more concurrent SSL negotiations but it comes at a cost. Only modern browsers support ECC cipher suites, as a result many choose to stay with RSA or to deploy both. It is important to note that not all certificate authorities (CAs) support issuing ECC certificates, as such, this decision may impact which CA you choose.</p>
+						</div>
+					</div>
+				</div>
+				<div class="question_answer">
+					<div class="question">
+						<div class="q_block">
+							<p>Q</p>
+						</div>
+						<div class="q_details">
 							<p>How do I know the key length I should use?</p>
 						</div>
 					</div>
