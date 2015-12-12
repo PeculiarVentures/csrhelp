@@ -317,6 +317,24 @@
 						</div>
 					</div>
 				</div>
+				<div class="question_answer">
+					<div class="question">
+						<div class="q_block">
+							<p>Q</p>
+						</div>
+						<div class="q_details">
+							<p>How is the "ANY" key pair and PKCS#10 generated?</p>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="a_block">
+							<p>A</p>
+						</div>
+						<div class="a_details">
+							<p>Modern browsers support a set of APIs commonly referred to as <a href="http://caniuse.com/#feat=cryptography">WebCrypto</a>. These APIs allows us to generate the keys for your certificate within your browser. We then use a library we produce called <a href="https://pkijs.org">PKIjs</a> to generate your certificate request. We never see your key and we generate a new key pair for every certificate request you make. If for some reason your browser doesn’t support WebCrypto or an algorithm we need to generate the request we simply omit this option from the results.</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>
