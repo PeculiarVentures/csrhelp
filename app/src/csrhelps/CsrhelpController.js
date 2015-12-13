@@ -140,7 +140,7 @@
 			openssl+='/CN='+$scope.certificate.hostname+'"';
 			
 			if($scope.certificate.algorithm == "ECC") {
-				openssl='openssl ecparam -name '+$scope.certificate.keysize+' -genkey -noout -out '+$scope.getFilename($scope.certificate.hostname)+'.key && openssl req -new -out '+$scope.getFilename($scope.certificate.hostname)+'.csr -key '+$scope.getFilename($scope.certificate.hostname)+'.key -subj "';
+				openssl='openssl ecparam -name '+$scope.certificate.keysize+' -genkey -noout -out '+$scope.getFilename($scope.certificate.hostname)+'.key && openssl req -new -out '+$scope.getFilename($scope.certificate.hostname)+'.csr -key '+$scope.getFilename($scope.certificate.hostname)+'.key -sha256 -subj "';
 				if($scope.certificate.country)
 					openssl+='/C='+$scope.certificate.country;
 				if($scope.certificate.state)				
