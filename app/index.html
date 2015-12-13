@@ -1,31 +1,33 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" >
   <head>
     <title>SSL Certificate Signing Request Tool</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    	<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-touch-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-touch-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-touch-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-touch-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-touch-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-touch-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-touch-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon-180x180.png">
-	<link rel="icon" type="image/png" href="assets/favicons/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="assets/favicons/favicon-194x194.png" sizes="194x194">
-	<link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png" sizes="96x96">
-	<link rel="icon" type="image/png" href="assets/favicons/android-chrome-192x192.png" sizes="192x192">
-	<link rel="icon" type="image/png" href="assets/favicons/favicon-16x16.png" sizes="16x16">
-	<link rel="manifest" href="/manifest.json">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="msapplication-TileColor" content="#da532c">
-	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
-	<meta name="theme-color" content="#ffffff">
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
     <link rel='stylesheet' href='assets/css/fonts.css'>
     <link rel="stylesheet" href="assets/css/angular-material.min.css">
@@ -58,8 +60,8 @@
 					<md-input-container>
 						<md-input-container class="hostname_input">
 							<label>Hostname</label>
-							<input ng-model="certificate.common_name" name="common_name" ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" required  ng-keyup="hostname_change();" id="common_name">
-							<div ng-messages="certificateForm.common_name.$error">
+							<input ng-model="certificate.hostname" name="hostname" ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" required  ng-keyup="hostname_change();" id="hostname">
+							<div ng-messages="certificateForm.hostname.$error">
 								<div ng-message="required">This is required.</div>
 								<div ng-message="pattern">This should be a a hostname.</div>
 							</div>
@@ -118,7 +120,7 @@
 				</md-content>
 			</form>
 		</div>
-		<div id="result" ng-if="certificate.common_name && certificate.algorithm && certificate.keysize">
+		<div id="result" ng-if="certificate.hostname && certificate.algorithm && certificate.keysize">
 			<md-toolbar class="md-theme-light">
 				<h2 class="md-toolbar-tools">
 					<span>Results</span>
@@ -199,6 +201,24 @@
 							<p>Q</p>
 						</div>
 						<div class="q_details">
+							<p>Should I use a ECC or RSA certificate?</p>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="a_block">
+							<p>A</p>
+						</div>
+						<div class="a_details">
+							<p><a href="https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/">ECC works on different principles</a> than RSA. This different approach results in a dramatic performance improvement. With ECDSA you get as much as a 23x performance improvement for signatures. This can help your site handle more concurrent SSL negotiations but it comes at a cost. Only modern browsers support ECC cipher suites, as a result many choose to stay with RSA or to deploy both. It is important to note that not all certificate authorities (CAs) support issuing ECC certificates, as such, this decision may impact which CA you choose.</p>
+						</div>
+					</div>
+				</div>
+				<div class="question_answer">
+					<div class="question">
+						<div class="q_block">
+							<p>Q</p>
+						</div>
+						<div class="q_details">
 							<p>How do I know the key length I should use?</p>
 						</div>
 					</div>
@@ -207,7 +227,7 @@
 							<p>A</p>
 						</div>
 						<div class="a_details">
-							<p>The larger the private key the stronger it is, unfortunately the larger it is the slower the cryptographic operations with that key will be. Though techniques for cryptanalysis are often improving at this time, the general consensus is that RSA keys with a key length of 2048 are sufficiently strong.</p>
+							<p>Generally speaking the larger the private key the stronger it is. Unfortunately the larger it is the slower the cryptographic operations with that key will be. Though techniques for cryptanalysis are always improving, at this time, the <a href="http://keylength.com">general consensus</a> is that RSA 2048-bit and ECC 256-bit keys are sufficiently strong for most use cases.</p>
 						</div>
 					</div>
 				</div>
@@ -234,6 +254,112 @@
 						</div>
 					</div>
 				</div>
+				<div class="question_answer">
+					<div class="question">
+						<div class="q_block">
+							<p>Q</p>
+						</div>
+						<div class="q_details">
+							<p>What should I use as my SSL configuration?</p>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="a_block">
+							<p>A</p>
+						</div>
+						<div class="a_details">
+							<p>Take a look at the <a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">Mozilla SSL Configuration Generator</a> and <a href="https://cipherli.st">Cipherli.st</a> for configuration recomendations. They provide reasonable choices for secure SSL configurations.</p>
+							<br/>
+							<p>When you are done be sure to check your score at <a href="https://www.ssllabs.com/ssltest/">SSL Labs</a>. When checking your SSL score pay close attention to client compatibility and adjust settings accordingly.</p>
+						</div>
+					</div>
+				</div>
+				<div class="question_answer">
+					<div class="question">
+						<div class="q_block">
+							<p>Q</p>
+						</div>
+						<div class="q_details">
+							<p>Are there other SSL related security settings I should pay attention to?</p>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="a_block">
+							<p>A</p>
+						</div>
+						<div class="a_details">
+							<p>Absolutely, there are a number of HTTP headers a server can send that can help the browser enforce appropriate security controls. Check out the <a href="https://securityheaders.io/">Security Headers</a websitte for recomendations.</p>
+							<br/><br/>
+							<p>We recomend you take a look at <a href="https://report-uri.io/">Report URI</a>, it can help you keep an eye on your deployment of Content Security Policy (CSP) and Public Key Pinning (HPKP).</p>
+						</div>
+					</div>
+				</div>
+				<div class="question_answer">
+					<div class="question">
+						<div class="q_block">
+							<p>Q</p>
+						</div>
+						<div class="q_details">
+							<p>Where should I get my SSL certificate?</p>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="a_block">
+							<p>A</p>
+						</div>
+						<div class="a_details">
+							<p>There are several organizations that offer free Domain Validated (DV) SSL certificates. One that we are involved in is <a href="https://letsencrypt.org/">Let’s Encrypt</a>.</p>
+							<br/>
+							<br/>
+							<p>For Extended Validation (EV) certificates, the best experience in our opinion is offered by <a href="https://certsimple.com">CertSimple</a>. </p>
+							<br/>
+							<br/>
+							<p>Additionally there are a number of responsible commercial certificate authorities such as <a href="https://www.globalsign.com/">GlobalSign</a> and <a href="https://www.digicert.com/">DigiCert</a> that offer a complete product portfolio of certificate related offerings.</p>
+						</div>
+					</div>
+				</div>
+				<div class="question_answer">
+					<div class="question">
+						<div class="q_block">
+							<p>Q</p>
+						</div>
+						<div class="q_details">
+							<p>How is the "ANY" CSR and key pair generated?</p>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="a_block">
+							<p>A</p>
+						</div>
+						<div class="a_details">
+							<p>Modern browsers support a set of APIs commonly referred to as <a href="http://caniuse.com/#feat=cryptography">WebCrypto</a>. These APIs allows us to generate the keys for your certificate within your browser. We then use a library we produce called <a href="https://pkijs.org">PKIjs</a> to generate your certificate request. We never see your key and we generate a new key pair for every certificate request you make. If for some reason your browser doesn’t support WebCrypto or an algorithm we need to generate the request we simply omit this option from the results.</p>
+						</div>
+					</div>
+				</div>
+				<div class="question_answer">
+					<div class="question">
+						<div class="q_block">
+							<p>Q</p>
+						</div>
+						<div class="q_details">
+							<p>Who has access to the private key in the "ANY" section?</p>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="a_block">
+							<p>A</p>
+						</div>
+						<div class="a_details">
+							<p>This site is hosted on GitHub and we use CloudFlare as a CDN. All of the resources (scripts, fonts, layout) used in the site are served using gh-pages. Because these organizations are involved they could theoretically modify the page to take a copy of the private key generated here. You can also clone this repository with this command: </p>
+							<br />
+							<br />
+							<p>	git clone https://github.com/PeculiarVentures/csrhelp.git</p>
+							<br />
+							<br />
+							<p>Which will let you run this site locally and not be exposed to this risk.</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>
@@ -247,11 +373,12 @@
     <script src="assets/js/ZeroClipboard.js"></script>
     <script src="assets/js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="assets/js/angular-material.min.js"></script>
+    
     <script>    	
     	$(document).ready(function() {
     		setTimeout(function() {
 	    		$('form:first *:input[type!=hidden]:first').focus();
-	    	}, 800);  
+	    	}, 400);  
 	});
     </script>
     
