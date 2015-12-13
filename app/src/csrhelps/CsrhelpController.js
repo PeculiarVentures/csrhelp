@@ -81,9 +81,9 @@
 	    			if($scope.certificate.keysize != "secp256r1" && $scope.certificate.keysize != "secp384r1" && $scope.certificate.keysize != "secp521r1")
 	    				$scope.certificate.keysize = "secp256r1";
 	    		} else {
-	    			$scope.keysizes = [{key:2048, value:2048}, {key:4096, value:4096}];
-	    			if($scope.certificate.keysize != 2048 && $scope.certificate.keysize != 4096)
-	    				$scope.certificate.keysize = 2048;	    			
+	    			$scope.keysizes = [{key:2048, value:2048}, {key:3072, value:3072}, {key:4096, value:4096}, {key:6144, value:6144}, {key:8192, value:8192}];
+	    			/*if($scope.certificate.keysize != 2048 && $scope.certificate.keysize != 4096)
+	    				$scope.certificate.keysize = 2048;*/	    			
 	    		}
 	    		
 	    		if($scope.certificate.hostname && $scope.certificate.algorithm && $scope.certificate.keysize) {
