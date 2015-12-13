@@ -87,11 +87,11 @@
 	    		}
 	    		
 	    		if($scope.certificate.hostname && $scope.certificate.algorithm && $scope.certificate.keysize) {
-	    				$scope.generateCertificate();
+	    				$scope.generateCSR();
 	    		}
 	    }
 	    
-	    $scope.generateCertificate = function() {
+	    $scope.generateCSR = function() {
 	    		$scope.certificate.hostname = $scope.certificate.hostname.toLowerCase();	    		
 	    		for(var i = 1; i < 7; i++)
 		    		$scope.messages[i].content="";
