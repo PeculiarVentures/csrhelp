@@ -134,11 +134,11 @@
 							<h2>{{item.type}}</h2>
 							<pre id="{{item.type}}" ng-click="selectToClipboard($event, item);">{{item.content}}</pre>
 						</div>
-						<md-button href='' class="md-fab md-fab-top-right right" id="copy-content-button" ng-click="copyToClipboard($event, item);" ui-zeroclip zeroclip-copied="copyToClipboard($event, item);" zeroclip-model="item.content">
-							<i class="copy-content-button"></i> 
-							<md-tooltip>
-								{{item.status}}
-							</md-tooltip>
+						<md-button class="md-fab md-fab-top-right right">
+						      <a ui-zeroclip zeroclip-copied="copyToClipboard($event, item);" class="copy-content-button" zeroclip-model="item.content"></a>
+						      <md-tooltip>
+						        {{item.status}}
+						      </md-tooltip>
 						</md-button>	
 						<md-button href='' class="md-fab md-fab-top-right right" ng-if="item.download" id="copy-content-button-container" ng-click="download($event, item);">
 							<i class="download-button"></i> 
