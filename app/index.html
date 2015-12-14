@@ -140,12 +140,10 @@
 						        {{item.status}}
 						      </md-tooltip>
 						</md-button>
-						<md-button class="md-fab md-fab-top-right right" ng-if="item.download" id="copy-content-button-container">
-						      <a ng-click="download($event, item);" class="download-button"></a>
-						      <md-tooltip>
-						      	Download
-						      </md-tooltip>
-						</md-button>						
+						<md-button href='' class="md-fab md-fab-top-right right" ng-if="item.download" id="copy-content-button-container" ng-click="download($event, item);">
+							<i class="download-button"></i> 
+							<md-tooltip> Download </md-tooltip> 
+						</md-button>
 						<md-divider ng-if="!$last"></md-divider>
 					</md-list-item>				      
 				</md-list>
