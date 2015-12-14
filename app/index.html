@@ -134,7 +134,7 @@
 							<h2>{{item.type}}</h2>
 							<pre id="{{item.type}}" ng-click="selectToClipboard($event, item);">{{item.content}}</pre>
 						</div>
-						<md-button href='' class="md-fab md-fab-top-right right" id="copy-content-button-container" ng-click="copyToClipboard($event, item);" ui-zeroclip zeroclip-copied="copyToClipboard($event, item);" zeroclip-model="item.content">
+						<md-button href='' class="md-fab md-fab-top-right right" id="copy-content-button" ng-click="copyToClipboard($event, item);" ui-zeroclip zeroclip-copied="copyToClipboard($event, item);" zeroclip-model="item.content">
 							<i class="copy-content-button"></i> 
 							<md-tooltip>
 								{{item.status}}
