@@ -64,7 +64,7 @@
 						 	ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" id="hostname" ng-model-options="{debounce:900}"
 						 	ng-change="onBlurOrChange()">
 						<div ng-messages="certificateForm.hostname.$error">
-							<div ng-message="required">This is re quired.</div>
+							<div ng-message="required">This is required.</div>
 							<div ng-message="pattern">This should be a a hostname.</div>
 						</div>
 					</md-input-container>
@@ -153,8 +153,8 @@
 			<md-content>
 				<md-list>
 					<md-list-item class="md-3-line" 
-						ng-if='item.type !== "Any" ? true : bWebcrypto ? true : false'
-						ng-repeat="item in messages">						
+-						ng-if='item.type !== "Any" ? true : bWebcrypto ? true : false'
+-						ng-repeat="item in messages">						
 						<md-progress-linear md-mode="indeterminate" ng-if="!item.content"></md-progress-linear>
 						<div class="md-list-item-text">
 							<h2>{{item.type}}</h2>
@@ -393,9 +393,9 @@
 		</section>
 	</div>
 
-    <!-- Angular Material Dependencies -->
     <script src='assets/js/promiz.min.js'></script>
     <script src='assets/js/webcrypto-shim.min.js'></script>
+    <!-- Angular Material Dependencies -->
     <script src="assets/js/angular.min.js"></script>
     <script src="assets/js/angular-animate.min.js"></script>
     <script src="assets/js/angular-aria.min.js"></script>

@@ -1,9 +1,9 @@
   angular
        .module('csrhelps')
        .controller('CsrhelpController', [
-            'csrhelpService', '$mdSidenav', '$mdBottomSheet', 
-            '$log', '$q', '$scope', '$timeout',
-            CsrhelpController
+          'csrhelpService', '$mdSidenav', '$mdBottomSheet', 
+          '$log', '$q', '$scope', '$timeout',
+          CsrhelpController
        ]);
 
   /**
@@ -16,7 +16,7 @@
   function CsrhelpController(
     csrhelpService, $mdSidenav, $mdBottomSheet, 
     $log, $q, $scope, $timeout) {
-
+ 
         if (window.crypto && 
             !window.crypto.subtle && 
             window.crypto.webkitSubtle) {
@@ -73,7 +73,7 @@
             download: true,
             status: 'Copy'
         }];
-
+ 
         var RSAKeySizes = [{key:2048, value:"2048"}, {key:3072, value:"3072"}, {key:4096, value:"4096"}, {key:6144, value:"6144"}, {key:8192, value:"8192"}];
         var ECCKeySizes = [{key:256, value:"secp256r1"}, {key:384, value:"secp384r1"}, {key:521, value:"secp521r1"}];
         
@@ -102,11 +102,11 @@
                     $scope.certificate.keysize = "2048";                    
                 }
         }
-
+ 
         $scope.onBlurOrChange = function(){
             generateReport();
         }
-
+ 
         $scope.copyToClipboard = function($event, item) {
             execCommandCopy($event, item, function(err){
                 if(err){
@@ -119,7 +119,7 @@
                 item.status="Copied";
             });             
         }
-
+ 
         $scope.download = function($event, item) {
             if($scope.certificate.hostname=="*.example.com"){
                 $scope.certificate.filehostname = "star.example.com";
@@ -131,7 +131,7 @@
                 .attr('href','data:application/pkcs8,'+encodeURIComponent($scope.messages[6].privateKey))
                 .attr('download', $scope.certificate.filehostname+'.key');
         }
-
+ 
         function generateReport(){
             var messages = [];
             if($scope.certificateForm.$valid){
@@ -155,7 +155,7 @@
             }
             
         }
-
+ 
         function selectToClipboard ($event, item) {
             if (window.getSelection && document.createRange) {
                 // IE 9 and non-IE
