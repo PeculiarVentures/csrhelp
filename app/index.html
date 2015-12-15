@@ -62,8 +62,8 @@
 						<label>Hostname</label>
 						<input name="hostname" required
 							ng-model="certificate.hostname" 
-						 	ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" id="hostname" ng-model-options="{debounce:300}"
-						 	ng-change="hideResult()"
+						 	ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" id="hostname"
+						 	ng-change="onBlurOrChange();hideResult()"
 						 	ng-blur="onBlurOrChange()">
 						<div ng-messages="certificateForm.hostname.$error">
 							<div ng-message="required">This is required.</div>
@@ -77,16 +77,14 @@
 							<label>Organization</label>
 							<input name="organization"
 								ng-model="certificate.organization"
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
 						</md-input-container>
 						<md-input-container flex>
 							<label>Organization Unit</label>
 							<input name="organization_unit"
 								ng-model="certificate.organization_unit"
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
 						</md-input-container>				        
 					</div>
@@ -94,17 +92,15 @@
 						<md-input-container flex>
 							<label>City / Locality</label>
 							<input name="city"
-								ng-model="certificate.city" 
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-model="certificate.city"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
 						</md-input-container>
 						<md-input-container flex>
 							<label>State / County / Region</label>
 							<input name="state"
 								ng-model="certificate.state"
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
 						</md-input-container>				        
 					</div>
@@ -112,8 +108,8 @@
 						<md-input-container flex>
 							<label>Country</label>
 							<md-select name="country"
-								ng-model="certificate.country" 
-								ng-model-options="{debounce:300}"
+								ng-model="certificate.country"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange();"
 								ng-change="hideResult();">
 								<md-option ng-repeat="country in countries" value="{{country.code}}">
@@ -125,9 +121,8 @@
 							<label>Key Algorithm</label>
 							<md-select name="algorithm"
 								ng-model="certificate.algorithm" 
-								ng-change="onChangeAlgorithmKey();hideResult()"
-								ng-blur="onBlurOrChange()" 
-								ng-model-options="{debounce:300}"
+								ng-change="onChangeAlgorithmKey();onBlurOrChange();;hideResult()"
+								ng-blur="onBlurOrChange()"
 								required>
 								<md-option ng-repeat="algorithm in algorithms" value="{{algorithm}}">
 									{{algorithm}}
@@ -140,8 +135,7 @@
 							<label>Key Size</label>
 							<md-select name="keysize"
 								ng-model="certificate.keysize"
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()" 
 								required>
 								<md-option ng-repeat="keysize in keysizes" value="{{keysize.value}}">
@@ -153,13 +147,14 @@
 				</md-content>
 			</form>
 		</div>
-		<div id="result" ng-if="showResult" flex>
-			<md-toolbar class="md-theme-light">
+		<div id="result" flex>
+			<md-progress-circular md-mode="indeterminate" ng-if="showSpinner"></md-progress-circular>
+			<md-toolbar class="md-theme-light" ng-if="showResult">
 				<h2 class="md-toolbar-tools">
 					<span>Results</span>
 				</h2>
 			</md-toolbar>
-			<md-content>
+			<md-content ng-if="showResult">
 				<md-list>
 					<md-list-item class="md-3-line" 
 						ng-repeat="item in messages" layout='column'>						
