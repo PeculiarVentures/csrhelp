@@ -247,7 +247,7 @@
                      '.csr -keystore '+getFilename(certf.hostname)+'.jks';
                  } else {
                      keytool+='CN='+certf.hostname+'" && keytool -certreq -alias server '+
-                     '-file '+getFilename(certf.hostname)+
+                     '-file '+getFilename(certf.hostname)+ 
                      '.csr -keystore '+getFilename(certf.hostname)+'.jks';
                  }
              }
