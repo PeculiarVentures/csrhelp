@@ -433,7 +433,7 @@
                  $scope.bWebcrypto = false;
                  context.content = '';
                  $timeout(function(){
-                     deferred.reject('No WebCrypto extension found');
+                    deferred.reject('No WebCrypto extension found');
                  }, 0);
                  return deferred.promise;
              }
@@ -538,7 +538,7 @@
              },function(error){
                  context.content='';
                  //alert("Error during key generation: " + error);
-                 return $q.reject;
+                 deferred.reject("Error during key generation: " + error);
              });
              // #endregion 
 
@@ -604,10 +604,11 @@
                  var result_string = "\r\n-----BEGIN PRIVATE KEY-----\r\n";
                  result_string = result_string + formatPEM(window.btoa(private_key_string));
                  result_string = result_string + "\r\n-----END PRIVATE KEY-----";
-                 context.privateKey= result_string;
+                 context.privateKey = result_string;
                  deferred.resolve(context.content);
              },function(error){
                  //alert("Error during exporting of private key: " + error);
+                 context.content = '';
                  deferred.reject("Error during exporting of private key: " + error);
                  context.support = false;
              });

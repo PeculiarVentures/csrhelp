@@ -293,7 +293,8 @@ md-list-item.md-3-line, md-list-item.md-3-line>.md-no-style {
     position: relative;
     padding-bottom: 0;
     width:100%;    
-    margin: 3% auto;
+    margin: 0 auto;
+    top: 16px;
     max-width:1024px;
 }
 

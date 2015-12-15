@@ -61,8 +61,9 @@
 						<label>Hostname</label>
 						<input name="hostname" required
 							ng-model="certificate.hostname" 
-						 	ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" id="hostname" ng-model-options="{debounce:900}"
-						 	ng-change="onBlurOrChange()">
+						 	ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" id="hostname" ng-model-options="{debounce:300}"
+						 	ng-change="hideResult()"
+						 	ng-blur="onBlurOrChange()">
 						<div ng-messages="certificateForm.hostname.$error">
 							<div ng-message="required">This is required.</div>
 							<div ng-message="pattern">This should be a a hostname.</div>
@@ -75,15 +76,17 @@
 							<label>Organization</label>
 							<input name="organization"
 								ng-model="certificate.organization"
-								ng-model-options="{debounce:900}"
-								ng-change="onBlurOrChange()">
+								ng-model-options="{debounce:300}"
+								ng-change="hideResult()"
+								ng-blur="onBlurOrChange()">
 						</md-input-container>
 						<md-input-container flex>
 							<label>Organization Unit</label>
 							<input name="organization_unit"
 								ng-model="certificate.organization_unit"
-								ng-model-options="{debounce:900}"
-								ng-change="onBlurOrChange()">
+								ng-model-options="{debounce:300}"
+								ng-change="hideResult()"
+								ng-blur="onBlurOrChange()">
 						</md-input-container>				        
 					</div>
 					<div layout layout-sm="column">
@@ -91,15 +94,17 @@
 							<label>City / Locality</label>
 							<input name="city"
 								ng-model="certificate.city" 
-								ng-model-options="{debounce:900}"
-								ng-change="onBlurOrChange()">
+								ng-model-options="{debounce:300}"
+								ng-change="hideResult()"
+								ng-blur="onBlurOrChange()">
 						</md-input-container>
 						<md-input-container flex>
 							<label>State / County / Region</label>
 							<input name="state"
 								ng-model="certificate.state"
-								ng-model-options="{debounce:900}"
-								ng-change="onBlurOrChange()">
+								ng-model-options="{debounce:300}"
+								ng-change="hideResult()"
+								ng-blur="onBlurOrChange()">
 						</md-input-container>				        
 					</div>
 					<div layout layout-sm="column">
@@ -107,8 +112,9 @@
 							<label>Country</label>
 							<md-select name="country"
 								ng-model="certificate.country" 
-								ng-model-options="{debounce:900}"
-								ng-change="onBlurOrChange();">
+								ng-model-options="{debounce:300}"
+								ng-blur="onBlurOrChange();"
+								ng-change="hideResult();">
 								<md-option ng-repeat="country in countries" value="{{country.code}}">
 									{{country.name}}
 								</md-option>
@@ -118,8 +124,9 @@
 							<label>Key Algorithm</label>
 							<md-select name="algorithm"
 								ng-model="certificate.algorithm" 
-								ng-change="onChangeAlgorithmKey();onBlurOrChange()" 
-								ng-model-options="{debounce:900}"
+								ng-change="onChangeAlgorithmKey();hideResult()"
+								ng-blur="onBlurOrChange()" 
+								ng-model-options="{debounce:300}"
 								required>
 								<md-option ng-repeat="algorithm in algorithms" value="{{algorithm}}">
 									{{algorithm}}
@@ -132,8 +139,8 @@
 							<label>Key Size</label>
 							<md-select name="keysize"
 								ng-model="certificate.keysize"
-								ng-model-options="{debounce:900}"
-								ng-change="onBlurOrChange()" 
+								ng-model-options="{debounce:300}"
+								ng-blur="onBlurOrChange()" 
 								required>
 								<md-option ng-repeat="keysize in keysizes" value="{{keysize.value}}">
 									{{keysize.key}}
@@ -144,7 +151,7 @@
 				</md-content>
 			</form>
 		</div>
-		<div id="result">
+		<div id="result" ng-if="showResult">
 			<md-toolbar class="md-theme-light">
 				<h2 class="md-toolbar-tools">
 					<span>Results</span>
@@ -153,8 +160,8 @@
 			<md-content>
 				<md-list>
 					<md-list-item class="md-3-line" 
--						ng-if='item.type !== "Any" ? true : bWebcrypto ? true : false'
--						ng-repeat="item in messages">						
+						ng-if='!!item.content'
+						ng-repeat="item in messages">						
 						<md-progress-linear md-mode="indeterminate" ng-if="!item.content"></md-progress-linear>
 						<div class="md-list-item-text">
 							<h2>{{item.type}}</h2>

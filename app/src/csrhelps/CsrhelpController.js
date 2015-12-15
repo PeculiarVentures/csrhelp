@@ -102,6 +102,10 @@
                     $scope.certificate.keysize = "2048";                    
                 }
         }
+
+        $scope.hideResult = function(){
+            $scope.showResult = false;
+        }
  
         $scope.onBlurOrChange = function(){
             generateReport();
@@ -133,27 +137,33 @@
         }
  
         function generateReport(){
-            var messages = [];
+            var messages = $scope.messages = [];
+            $scope.showResult = false;
             if($scope.certificateForm.$valid){
                 var certf = angular.copy($scope.certificate);
                 var md5Key = btoa(JSON.stringify(certf));
                 master.cachedMessages = master.cachedMessages || {};
                 if(master.cachedMessages[md5Key]){
                     $scope.messages = angular.copy(master.cachedMessages[md5Key]);
+                    $scope.showResult = true;
                 } else {
                     var promises = (master.messages).map(function(message){
-                        messages.push(message);
-                        return (csrhelpService[message.method]).call(null, certf, message);
+                        var msg = angular.copy(message)
+                        messages.push(msg);
+                        return (csrhelpService[message.method]).call(null, certf, msg);
                     });
-                    $q.all(promises).then(function(){
-                        master.cachedMessages[md5Key] = angular.copy(messages);
-                        $scope.messages = messages;
-                    }) 
+                    $q.all(promises)
+                        .catch(function(err){
+                            console.log('ERR!: ', err);
+                            $scope.errorMessage = err;
+                        })
+                        .finally(function(){
+                            master.cachedMessages[md5Key] = angular.copy(messages);
+                            $scope.messages = messages;
+                            $scope.showResult = true;
+                        }); 
                 }
-            } else {
-                $scope.messages = messages;
             }
-            
         }
  
         function selectToClipboard ($event, item) {
