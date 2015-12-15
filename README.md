@@ -69,6 +69,13 @@ npm update
 bower update
 ```
 
+## Suitability
+
+We believe this is ready for use but it has not undergone third-party review.
+
+## Bug Reporting
+
+Please report bugs either as pull requests or as issues in the issue tracker. Graphene has a full disclosure vulnerability policy. Please do NOT attempt to report any security vulnerability in this code privately to anybody.
 
 ## Related
 
