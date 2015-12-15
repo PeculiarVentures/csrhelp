@@ -70,7 +70,8 @@
 
              //$scope.messages[0].content = openssl;
              context.content = openssl;
-             return $q.when(openssl);
+             return context;
+             //return $q.when(openssl);
          }
 
          function make_exchange2007(certf, context) {     
@@ -117,7 +118,8 @@
                  exchange+='cn='+certf.hostname+'" -PrivateKeyExportable $True';
              
              context.content = exchange;
-             return $q.when(exchange);
+             return true;
+             //return $q.when(exchange);
          }
 
          function make_exchange2010(certf, context) {
@@ -173,7 +175,8 @@
 
              //$scope.messages[2].content=exchange;
              context.content = exchange;
-             return $q.when(exchange);    
+             return context;
+             //return $q.when(exchange);    
          }
 
          function make_keytool(certf, context) {
@@ -240,17 +243,18 @@
                  if(certf.algorithm == "ECC"){
                      keytool+='CN='+certf.hostname+
                      '" -alias server && keytool -certreq -alias server '+
-                     '-file '+getFilename(certf.hostname)+
-                     '.csr -keystore '+getFilename(certf.hostname)+'.jks';
+                     '-file '+getFilename(certf.hostname)+'.csr '+
+                     '-keystore '+getFilename(certf.hostname)+'.jks';
                  } else {
                      keytool+='CN='+certf.hostname+'" && keytool -certreq -alias server '+
-                     '-file '+getFilename(certf.hostname)+
-                     '.csr -keystore '+getFilename(certf.hostname)+'.jks';
+                     '-file '+getFilename(certf.hostname)+'.csr '+
+                     '-keystore '+getFilename(certf.hostname)+'.jks';
                  }
              }
              //$scope.messages[3].content=keytool;
              context.content = keytool;
-             return $q.when(keytool);
+             return context;
+             //return $q.when(keytool);
          }
 
          function make_bigip(certf, context) {
@@ -278,7 +282,7 @@
 
              bigip+=' common-name "'+certf.hostname+ '"';
              if(certf.algorithm == "ECC") {
-                 var bigip='create key '+getFilename(certf.hostname)+
+                 var bigip='create sys crypto key '+getFilename(certf.hostname)+
                  ' key-type ec-private curve-name '+getECCKeysize('bigip', certf.keysize)+
                  ' gen-csr';
 
@@ -302,7 +306,8 @@
              }
              //$scope.messages[4].content=bigip; 
              context.content = bigip;
-             return $q.when(bigip);
+             return context;
+             //return $q.when(bigip);
          }
 
          function make_iis(certf, context) {
@@ -421,7 +426,8 @@
              }
              //$scope.messages[5].content=iis;
              context.content = iis;
-             return $q.when(iis);
+             return context;
+             //return $q.when(iis);
          }
 
          function make_any(certf, context) {
