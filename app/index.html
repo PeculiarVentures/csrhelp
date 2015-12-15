@@ -70,6 +70,12 @@
 							<div ng-message="pattern">This should be a a hostname.</div>
 						</div>
 					</md-input-container>
+					<md-input-container style='position:relative'>
+						<md-progress-circular md-mode="indeterminate" 
+							md-diameter="40" style='position:absolute;z-index:5;top:-5px'
+							ng-if="showSpinner">
+							</md-progress-circular>
+					</md-input-container>
 				</md-content>
 				<md-content layout-padding>				    
 					<div layout layout-sm="column">
@@ -147,14 +153,13 @@
 				</md-content>
 			</form>
 		</div>
-		<div id="result" flex>
-			<md-progress-circular md-mode="indeterminate" ng-if="showSpinner"></md-progress-circular>
-			<md-toolbar class="md-theme-light" ng-if="showResult">
+		<div id="result" flex ng-if="showResult">
+			<md-toolbar class="md-theme-light">
 				<h2 class="md-toolbar-tools">
 					<span>Results</span>
 				</h2>
 			</md-toolbar>
-			<md-content ng-if="showResult">
+			<md->
 				<md-list>
 					<md-list-item class="md-3-line" 
 						ng-repeat="item in messages" layout='column'>						
