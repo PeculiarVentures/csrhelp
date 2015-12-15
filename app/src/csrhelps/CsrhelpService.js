@@ -70,7 +70,8 @@
 
              //$scope.messages[0].content = openssl;
              context.content = openssl;
-             return $q.when(openssl);
+             return context;
+             //return $q.when(openssl);
          }
 
          function make_exchange2007(certf, context) {     
@@ -117,7 +118,8 @@
                  exchange+='cn='+certf.hostname+'" -PrivateKeyExportable $True';
              
              context.content = exchange;
-             return $q.when(exchange);
+             return true;
+             //return $q.when(exchange);
          }
 
          function make_exchange2010(certf, context) {
@@ -173,7 +175,8 @@
 
              //$scope.messages[2].content=exchange;
              context.content = exchange;
-             return $q.when(exchange);    
+             return context;
+             //return $q.when(exchange);    
          }
 
          function make_keytool(certf, context) {
@@ -250,7 +253,8 @@
              }
              //$scope.messages[3].content=keytool;
              context.content = keytool;
-             return $q.when(keytool);
+             return context;
+             //return $q.when(keytool);
          }
 
          function make_bigip(certf, context) {
@@ -302,7 +306,8 @@
              }
              //$scope.messages[4].content=bigip; 
              context.content = bigip;
-             return $q.when(bigip);
+             return context;
+             //return $q.when(bigip);
          }
 
          function make_iis(certf, context) {
@@ -421,7 +426,8 @@
              }
              //$scope.messages[5].content=iis;
              context.content = iis;
-             return $q.when(iis);
+             return context;
+             //return $q.when(iis);
          }
 
          function make_any(certf, context) {

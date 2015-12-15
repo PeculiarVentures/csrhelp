@@ -69,7 +69,7 @@
         },{
             type:'Any',
             method: 'make_any',
-            content: ' ',
+            content: '',
             download: true,
             status: 'Copy'
         }];
@@ -137,30 +137,32 @@
         }
  
         function generateReport(){
-            var messages = $scope.messages = [];
-            $scope.showResult = false;
             if($scope.certificateForm.$valid){
+                $scope.messages = (master.messages).map(function(message){
+                    return angular.copy(message);
+                });
+                $scope.showResult = true;
                 var certf = angular.copy($scope.certificate);
                 var md5Key = btoa(JSON.stringify(certf));
                 master.cachedMessages = master.cachedMessages || {};
                 if(master.cachedMessages[md5Key]){
                     $scope.messages = angular.copy(master.cachedMessages[md5Key]);
-                    $scope.showResult = true;
                 } else {
-                    var promises = (master.messages).map(function(message){
-                        var msg = angular.copy(message)
-                        messages.push(msg);
-                        return (csrhelpService[message.method]).call(null, certf, msg);
-                    });
+                    var promises = [];
+                    ($scope.messages).forEach(function(message){
+                        var context = (csrhelpService[message.method]).call(null, certf, message);
+                        if(context && context.then){
+                            promises.push(context);
+                        }
+                    })
+
                     $q.all(promises)
                         .catch(function(err){
                             console.log('ERR!: ', err);
                             $scope.errorMessage = err;
                         })
                         .finally(function(){
-                            master.cachedMessages[md5Key] = angular.copy(messages);
-                            $scope.messages = messages;
-                            $scope.showResult = true;
+                            master.cachedMessages[md5Key] = angular.copy($scope.messages);
                         }); 
                 }
             }

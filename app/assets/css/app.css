@@ -10,6 +10,14 @@ html, body {
 
 /* Toolbar area */
 
+[role="main"] {
+  margin: 0 auto;
+  max-width: 1024px;
+  width: 100%;
+  position: relative;
+  top:16px;
+}
+
 .menu {
   background-color: transparent;
   border: none;
@@ -177,8 +185,8 @@ md-toolbar h1 {
 }
 
 .FAQ_section .question_answer_area {
-    width: 1024px;
-    margin: 0px auto;
+    /*width: 1024px;*/
+    /*margin: 0px auto;*/
 }
 
 .FAQ_section h2 {
@@ -249,8 +257,8 @@ md-toolbar h1 {
 }
 
 .transparencyhub_container {
-    width: 1024px;
-    margin: 0px auto;
+    /*width: 1024px;*/
+    /*margin: 0px auto;*/
 }
 
 .FAQ_section .question_answer .question .q_details p {
@@ -283,19 +291,22 @@ md-list-item.md-3-line, md-list-item.md-3-line>.md-no-style {
 #request-form {
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
     border-radius: 4px;
-    margin-bottom: 16px;
+    /*margin-bottom: 16px;*/
     -webkit-transition: 0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
     transition: 0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
-    position: relative;
-    padding-bottom: 0;
-    width:100%;    
-    margin: 0 auto;
-    top:16px;
-    max-width:1024px;
+    /*position: relative;*/
+    /*padding-bottom: 0;*/
+    /*width:100%;    */
+    /*margin: 3% auto;*/
+    /*max-width:1024px;*/
 }
 
 #result {
-	margin-top:0;
+	/*margin-top:0;*/
+}
+
+#request-form {
+  top:16px;
 }
 
 .md-whiteframe-4dp, .md-whiteframe-z2 {

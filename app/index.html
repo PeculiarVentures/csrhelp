@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">    
-	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     
@@ -45,11 +45,12 @@
   </head>
 
   <body>
-  	<div layout="column" role="main" class="md-whiteframe-z2" ng-app="csrhelpApp" ng-controller="CsrhelpController">
-  		<md-toolbar layout="row" class="md-whiteframe-z1">
-			<h1 align="center"><span class="md-display-2">Requesting a SSL certificate made simple</span></h1>
-		</md-toolbar>
-		<div id="request-form">	    		
+  	<md-toolbar layout="row" class="md-whiteframe-z1">
+		<h1 align="center"><span class="md-display-2">Requesting a SSL certificate made simple</span></h1>
+	</md-toolbar>
+  	<div layout="column" role="main" class="md-whiteframe-z2" ng-app="csrhelpApp" 
+  	ng-controller="CsrhelpController" layout-margin>
+		<div id="request-form" flex>	    		
 			<md-toolbar class="md-theme-light">
 				<h2 class="md-toolbar-tools">
 					<span>Details</span>
@@ -151,7 +152,7 @@
 				</md-content>
 			</form>
 		</div>
-		<div id="result" ng-if="showResult">
+		<div id="result" ng-if="showResult" flex>
 			<md-toolbar class="md-theme-light">
 				<h2 class="md-toolbar-tools">
 					<span>Results</span>
@@ -160,34 +161,35 @@
 			<md-content>
 				<md-list>
 					<md-list-item class="md-3-line" 
-						ng-if='!!item.content'
-						ng-repeat="item in messages">						
-						<md-progress-linear md-mode="indeterminate" ng-if="!item.content"></md-progress-linear>
-						<div class="md-list-item-text">
+						ng-repeat="item in messages" layout='column'>						
+						<md-progress-linear md-mode="indeterminate" ng-if="!(!!item.content)"></md-progress-linear>
+						<div class="md-padding" flex>
 							<h2>{{item.type}}</h2>
 							<pre id="{{item.type}}" ng-click="selectToClipboard($event, item);">{{item.content}}</pre>
+							<div class='right' ng-if="!!item.content">
+							<md-button class="md-fab md-fab-top-right right"
+								ng-click="copyToClipboard($event, item);">
+							      <i class="copy-content-button"></i>
+							      <md-tooltip>
+							        {{item.status}}
+							      </md-tooltip>
+							</md-button>
+							<md-button href='' class="md-fab md-fab-top-right right"
+								id="copy-content-button-container" 
+								ng-if="bWebcrypto && item.download" ng-click="download($event, item);">
+							      <i class="download-button"></i>
+							      <md-tooltip>
+							      	Download
+							      </md-tooltip>
+							</md-button>
+							</div>
 						</div>
-						<md-button class="md-fab md-fab-top-right right"
-							ng-click="copyToClipboard($event, item);">
-						      <i class="copy-content-button"></i>
-						      <md-tooltip>
-						        {{item.status}}
-						      </md-tooltip>
-						</md-button>
-						<md-button  href='' class="md-fab md-fab-top-right right"
-							id="copy-content-button-container" 
-							ng-if="bWebcrypto && item.download" ng-click="download($event, item);">
-						      <i class="download-button"></i>
-						      <md-tooltip>
-						      	Download
-						      </md-tooltip>
-						</md-button>
 						<md-divider ng-if="!$last"></md-divider>
 					</md-list-item>				      
 				</md-list>
 			</md-content>
 		</div>
-		<section id="FAQ_section" class="FAQ_section">
+		<section id="FAQ_section" class="FAQ_section" flex>
 			<div class="transparencyhub_container">
 				<div class="question_answer_area">
 					<md-toolbar class="md-theme-light">
