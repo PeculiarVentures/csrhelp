@@ -243,12 +243,12 @@
                  if(certf.algorithm == "ECC"){
                      keytool+='CN='+certf.hostname+
                      '" -alias server && keytool -certreq -alias server '+
-                     '-file '+getFilename(certf.hostname)+
-                     '.csr -keystore '+getFilename(certf.hostname)+'.jks';
+                     '-file '+getFilename(certf.hostname)+'.csr '+
+                     '-keystore '+getFilename(certf.hostname)+'.jks';
                  } else {
                      keytool+='CN='+certf.hostname+'" && keytool -certreq -alias server '+
-                     '-file '+getFilename(certf.hostname)+ 
-                     '.csr -keystore '+getFilename(certf.hostname)+'.jks';
+                     '-file '+getFilename(certf.hostname)+'.csr '+
+                     '-keystore '+getFilename(certf.hostname)+'.jks';
                  }
              }
              //$scope.messages[3].content=keytool;
