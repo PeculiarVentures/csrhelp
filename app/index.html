@@ -141,6 +141,7 @@
 							<md-select name="keysize"
 								ng-model="certificate.keysize"
 								ng-model-options="{debounce:300}"
+								ng-change="hideResult()"
 								ng-blur="onBlurOrChange()" 
 								required>
 								<md-option ng-repeat="keysize in keysizes" value="{{keysize.value}}">
