@@ -282,7 +282,7 @@
 
              bigip+=' common-name "'+certf.hostname+ '"';
              if(certf.algorithm == "ECC") {
-                 var bigip='create key '+getFilename(certf.hostname)+
+                 var bigip='create sys crypto key '+getFilename(certf.hostname)+
                  ' key-type ec-private curve-name '+getECCKeysize('bigip', certf.keysize)+
                  ' gen-csr';
 
