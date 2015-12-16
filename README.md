@@ -2,6 +2,8 @@
 
 ***CSR Helper*** is a simple application based on [AngularJS Material](http://material.angularjs.org/) and [PKIjs](https://pkijs.org) that aims to make it easy for users to generate certificate requests (PKCS#10s) for requesting SSL certificates.
 
+You can find this project hosted here: https://csrhelp.peculiarventures.com
+
 ### What does it look like?
 
 Below is a snapshot of ***CSR Helper***. It is responsive and works well on mobile and tablet devices.
