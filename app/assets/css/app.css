@@ -10,6 +10,14 @@ html, body {
 
 /* Toolbar area */
 
+[role="main"] {
+  margin: 0 auto;
+  max-width: 1024px;
+  width: 100%;
+  position: relative;
+  top:16px;
+}
+
 .menu {
   background-color: transparent;
   border: none;
@@ -132,12 +140,12 @@ span.name {
 
 
 md-toolbar:not(.md-menu-toolbar) {
-	background-color: #344f89;
-	min-height: auto !important;
+  background-color: #344f89;
+  min-height: auto !important;
 }
 
 md-toolbar h1 {
-	line-height:50px;
+  line-height:50px;
 }
 
 .dividerdemoBasicUsage .face {
@@ -150,11 +158,11 @@ md-toolbar h1 {
 .question_answer_area md-toolbar:not(.md-menu-toolbar),
 #request-form md-toolbar:not(.md-menu-toolbar),
 #result md-toolbar:not(.md-menu-toolbar) {
-	background-color: #24375d;
+  background-color: #24375d;
 }
 
 .question_answer_area md-toolbar:not(.md-menu-toolbar) {
-	margin-bottom:10px;
+  margin-bottom:10px;
 }
 
 .inputdemoBasicUsage .md-datepicker-button {
@@ -177,8 +185,8 @@ md-toolbar h1 {
 }
 
 .FAQ_section .question_answer_area {
-    width: 1024px;
-    margin: 0px auto;
+    /*width: 1024px;*/
+    /*margin: 0px auto;*/
 }
 
 .FAQ_section h2 {
@@ -249,8 +257,8 @@ md-toolbar h1 {
 }
 
 .transparencyhub_container {
-    width: 1024px;
-    margin: 0px auto;
+    /*width: 1024px;*/
+    /*margin: 0px auto;*/
 }
 
 .FAQ_section .question_answer .question .q_details p {
@@ -273,9 +281,9 @@ md-toolbar h1 {
 }
 
 md-list-item.md-3-line, md-list-item.md-3-line>.md-no-style {
-	height:auto;
-	position:relative;
-	padding-right: 100px;
+  height:auto;
+  position:relative;
+  padding-right: 100px;
 }
 
 .transparencyhub_container,
@@ -283,23 +291,26 @@ md-list-item.md-3-line, md-list-item.md-3-line>.md-no-style {
 #request-form {
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
     border-radius: 4px;
-    margin-bottom: 16px;
+    /*margin-bottom: 16px;*/
     -webkit-transition: 0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
     transition: 0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
-    position: relative;
-    padding-bottom: 0;
-    width:100%;    
-    margin: 0 auto;
-    top:16px;
-    max-width:1024px;
+    /*position: relative;*/
+    /*padding-bottom: 0;*/
+    /*width:100%;    */
+    /*margin: 3% auto;*/
+    /*max-width:1024px;*/
 }
 
 #result {
-	margin-top:0;
+  /*margin-top:0;*/
+}
+
+#request-form {
+  top:16px;
 }
 
 .md-whiteframe-4dp, .md-whiteframe-z2 {
-	box-shadow:none;
+  box-shadow:none;
 }
 
 md-list-item .md-list-item-inner .md-secondary, md-list-item .md-list-item-inner .md-secondary-container, md-list-item .md-secondary, md-list-item .md-secondary-container {
@@ -312,7 +323,7 @@ md-list-item .md-list-item-inner .md-secondary, md-list-item .md-list-item-inner
 }
 
 md-list-item.md-2-line .md-list-item-text, md-list-item.md-2-line>.md-no-style .md-list-item-text, md-list-item.md-3-line .md-list-item-text, md-list-item.md-3-line>.md-no-style .md-list-item-text {
-	padding:10px;
+  padding:10px;
 }
 .md-button {
     border-radius: 3px;
@@ -356,61 +367,61 @@ button, input, select, textarea {
 }
 
 md-list md-list-item.md-2-line .md-list-item-text p, md-list md-list-item.md-3-line .md-list-item-text p {
-	max-width:60%;
+  max-width:60%;
 }
 
 md-input-container:not(.md-input-has-value) input:not(:focus), md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-ampm-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-day-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-hour-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-millisecond-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-minute-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-month-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-second-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-text, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-week-field, md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-year-field {
-	color:white;
+  color:white;
 }
 
 .md-docs-dark-theme {
-	padding-bottom:0px;
+  padding-bottom:0px;
 }
 
 @media screen and (max-width:1024px) {
-	.FAQ_section .question_answer .question {
-		float:none;
-		width:100%;
-	}
-	
-	.FAQ_section .question_answer .answer {
-		float: left;
-    		margin-top: 20px;
-    		width:100%
-	}
-	
-	.transparencyhub_container {
-	    width: auto;
-	    margin: 0px auto;
-	}
-	.FAQ_section .question_answer_area {
-	    width: auto;
-	    margin: 0px auto;
-	}
-		
+  .FAQ_section .question_answer .question {
+    float:none;
+    width:100%;
+  }
+  
+  .FAQ_section .question_answer .answer {
+    float: left;
+        margin-top: 20px;
+        width:100%
+  }
+  
+  .transparencyhub_container {
+      width: auto;
+      margin: 0px auto;
+  }
+  .FAQ_section .question_answer_area {
+      width: auto;
+      margin: 0px auto;
+  }
+    
 }
 
 @media screen and (min-width:500px) {
-	.hostname_input {
-		width:500px;
-	}		
+  .hostname_input {
+    width:500px;
+  }   
 }
 
 pre {
-	border:0px;
-	white-space: pre-wrap;
+  border:0px;
+  white-space: pre-wrap;
 }
 
 .transparencyhub_container {
-	margin-top:0px;
+  margin-top:0px;
 }
 
 .a_details ul {
-	list-style-type: decimal;
+  list-style-type: decimal;
 }
 
 .a_details ul li {
-	color: #505050;
+  color: #505050;
     font-size: 18px;
     font-weight: 100;
     width: 100%;
@@ -420,61 +431,61 @@ pre {
 }
 
 #hostname {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 .copy-content-button {
-	position:absolute;
-	top:5px;
-	cursor:pointer;
-	background:url('../icons/copy/web/ic_content_copy_black_24dp_1x.png') no-repeat center center;
-	width:30px;
-	height:30px;
+  position:absolute;
+  top:5px;
+  cursor:pointer;
+  background:url('../icons/copy/web/ic_content_copy_black_24dp_1x.png') no-repeat center center;
+  width:30px;
+  height:30px;
 }
 
 .download-button {
-	position:absolute;
-	top:5px;
-	cursor:pointer;
-	background:url('../icons/download/web/ic_file_download_black_24dp_1x.png') no-repeat center center;
-	width:30px;
-	height:30px;
+  position:absolute;
+  top:5px;
+  cursor:pointer;
+  background:url('../icons/download/web/ic_file_download_black_24dp_1x.png') no-repeat center center;
+  width:30px;
+  height:30px;
 }
 
 md-list-item .md-no-style, md-list-item.md-no-proxy {
-	padding:0px;
-	padding-right:40%;
+  padding:0px;
+  padding-right:40%;
 }
 
 pre {
-	outline: none
+  outline: none
 }
 
 .md-button.md-fab {
-	box-shadow: none;
-	width:40px;
-	height:40px;
+  box-shadow: none;
+  width:40px;
+  height:40px;
 }
 
 a.md-button.md-fab, .md-button.md-fab {
-	background-color:transparent;
+  background-color:transparent;
 }
 
 a.md-button.md-fab:not([disabled]).md-focused, .md-button.md-fab:not([disabled]).md-focused {
-	background-color: #ddd;
-	box-shadow: none;
+  background-color: #ddd;
+  box-shadow: none;
 }
 
 
 #copy-content-button-container {
-	right:70px;
+  right:70px;
 }
 
 md-tooltip {
-	min-width:50px;
-	text-align:center;
+  min-width:50px;
+  text-align:center;
 }
 
 md-progress-linear {
-	position:absolute;
+  position:absolute;
 }

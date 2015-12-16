@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">    
-	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     
@@ -45,11 +45,12 @@
   </head>
 
   <body>
-  	<div layout="column" role="main" class="md-whiteframe-z2" ng-app="csrhelpApp" ng-controller="CsrhelpController">
-  		<md-toolbar layout="row" class="md-whiteframe-z1">
-			<h1 align="center"><span class="md-display-2">Requesting a SSL certificate made simple</span></h1>
-		</md-toolbar>
-		<div id="request-form">	    		
+  	<md-toolbar layout="row" class="md-whiteframe-z1">
+		<h1 align="center"><span class="md-display-2">Requesting a SSL certificate made simple</span></h1>
+	</md-toolbar>
+  	<div layout="column" role="main" class="md-whiteframe-z2" ng-app="csrhelpApp" 
+  	ng-controller="CsrhelpController" layout-margin>
+		<div id="request-form" flex>	    		
 			<md-toolbar class="md-theme-light">
 				<h2 class="md-toolbar-tools">
 					<span>Details</span>
@@ -61,13 +62,19 @@
 						<label>Hostname</label>
 						<input name="hostname" required
 							ng-model="certificate.hostname" 
-						 	ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" id="hostname" ng-model-options="{debounce:300}"
-						 	ng-change="hideResult()"
+						 	ng-pattern="/^([a-zA-Z0-9*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/" id="hostname"
+						 	ng-change="onBlurOrChange();hideResult()"
 						 	ng-blur="onBlurOrChange()">
 						<div ng-messages="certificateForm.hostname.$error">
 							<div ng-message="required">This is required.</div>
 							<div ng-message="pattern">This should be a a hostname.</div>
 						</div>
+					</md-input-container>
+					<md-input-container style='position:relative'>
+						<md-progress-circular md-mode="indeterminate" 
+							md-diameter="40" style='position:absolute;z-index:5;top:-5px'
+							ng-if="showSpinner">
+							</md-progress-circular>
 					</md-input-container>
 				</md-content>
 				<md-content layout-padding>				    
@@ -76,16 +83,14 @@
 							<label>Organization</label>
 							<input name="organization"
 								ng-model="certificate.organization"
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
 						</md-input-container>
 						<md-input-container flex>
 							<label>Organization Unit</label>
 							<input name="organization_unit"
 								ng-model="certificate.organization_unit"
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
 						</md-input-container>				        
 					</div>
@@ -93,17 +98,15 @@
 						<md-input-container flex>
 							<label>City / Locality</label>
 							<input name="city"
-								ng-model="certificate.city" 
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-model="certificate.city"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
 						</md-input-container>
 						<md-input-container flex>
 							<label>State / County / Region</label>
 							<input name="state"
 								ng-model="certificate.state"
-								ng-model-options="{debounce:300}"
-								ng-change="hideResult()"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
 						</md-input-container>				        
 					</div>
@@ -111,8 +114,8 @@
 						<md-input-container flex>
 							<label>Country</label>
 							<md-select name="country"
-								ng-model="certificate.country" 
-								ng-model-options="{debounce:300}"
+								ng-model="certificate.country"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange();"
 								ng-change="hideResult();">
 								<md-option ng-repeat="country in countries" value="{{country.code}}">
@@ -124,9 +127,8 @@
 							<label>Key Algorithm</label>
 							<md-select name="algorithm"
 								ng-model="certificate.algorithm" 
-								ng-change="onChangeAlgorithmKey();hideResult()"
-								ng-blur="onBlurOrChange()" 
-								ng-model-options="{debounce:300}"
+								ng-change="onChangeAlgorithmKey();onBlurOrChange();;hideResult()"
+								ng-blur="onBlurOrChange()"
 								required>
 								<md-option ng-repeat="algorithm in algorithms" value="{{algorithm}}">
 									{{algorithm}}
@@ -139,7 +141,7 @@
 							<label>Key Size</label>
 							<md-select name="keysize"
 								ng-model="certificate.keysize"
-								ng-model-options="{debounce:300}"
+								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()" 
 								required>
 								<md-option ng-repeat="keysize in keysizes" value="{{keysize.value}}">
@@ -151,7 +153,7 @@
 				</md-content>
 			</form>
 		</div>
-		<div id="result" ng-if="showResult">
+		<div id="result" flex ng-if="showResult">
 			<md-toolbar class="md-theme-light">
 				<h2 class="md-toolbar-tools">
 					<span>Results</span>
@@ -160,34 +162,35 @@
 			<md-content>
 				<md-list>
 					<md-list-item class="md-3-line" 
-						ng-if='!!item.content'
-						ng-repeat="item in messages">						
-						<md-progress-linear md-mode="indeterminate" ng-if="!item.content"></md-progress-linear>
-						<div class="md-list-item-text">
+						ng-repeat="item in messages" layout='column'>						
+						<md-progress-linear md-mode="indeterminate" ng-if="!(!!item.content)"></md-progress-linear>
+						<div class="md-padding" flex>
 							<h2>{{item.type}}</h2>
 							<pre id="{{item.type}}" ng-click="selectToClipboard($event, item);">{{item.content}}</pre>
+							<div class='right' ng-if="!!item.content">
+							<md-button class="md-fab md-fab-top-right right"
+								ng-click="copyToClipboard($event, item);">
+							      <i class="copy-content-button"></i>
+							      <md-tooltip>
+							        {{item.status}}
+							      </md-tooltip>
+							</md-button>
+							<md-button href='' class="md-fab md-fab-top-right right"
+								id="copy-content-button-container" 
+								ng-if="bWebcrypto && item.download" ng-click="download($event, item);">
+							      <i class="download-button"></i>
+							      <md-tooltip>
+							      	Download Private Key
+							      </md-tooltip>
+							</md-button>
+							</div>
 						</div>
-						<md-button class="md-fab md-fab-top-right right"
-							ng-click="copyToClipboard($event, item);">
-						      <i class="copy-content-button"></i>
-						      <md-tooltip>
-						        {{item.status}}
-						      </md-tooltip>
-						</md-button>
-						<md-button  href='' class="md-fab md-fab-top-right right"
-							id="copy-content-button-container" 
-							ng-if="bWebcrypto && item.download" ng-click="download($event, item);">
-						      <i class="download-button"></i>
-						      <md-tooltip>
-						      	Download
-						      </md-tooltip>
-						</md-button>
 						<md-divider ng-if="!$last"></md-divider>
 					</md-list-item>				      
 				</md-list>
 			</md-content>
 		</div>
-		<section id="FAQ_section" class="FAQ_section">
+		<section id="FAQ_section" class="FAQ_section" flex>
 			<div class="transparencyhub_container">
 				<div class="question_answer_area">
 					<md-toolbar class="md-theme-light">
