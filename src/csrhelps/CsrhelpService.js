@@ -106,7 +106,7 @@
             else
                 exchange += 'cn=' + certf.hostname + '" ';
 
-            exchange += ' -PrivateKeyExportable $True';
+            exchange += '-PrivateKeyExportable $True';
 
             context.content = exchange;
             return true;
@@ -157,7 +157,7 @@
             else
                 exchange += 'cn=' + certf.hostname + '" ';
 
-            exchange += ' -PrivateKeyExportable $True';
+            exchange += '-PrivateKeyExportable $True';
 
             //$scope.messages[2].content=exchange;
             context.content = exchange;
@@ -214,14 +214,12 @@
             else
                 keytool += 'CN=' + certf.hostname + '" ';
 
-            keytool += ' && keytool -certreq -alias server ' +
+            keytool += '&& keytool -certreq -alias server ' +
                 '-file ' + getFilename(certf.hostname) + '.csr ' +
                 '-keystore ' + getFilename(certf.hostname) + '.jks';
 
-            //$scope.messages[3].content=keytool;
             context.content = keytool;
             return context;
-            //return $q.when(keytool);
         }
 
         function make_bigip(certf, context) {
@@ -252,10 +250,8 @@
 
             bigip += ' common-name "' + certf.hostname + '"';
 
-            //$scope.messages[4].content=bigip;
             context.content = bigip;
             return context;
-            //return $q.when(bigip);
         }
 
         function make_iis(certf, context) {
@@ -329,10 +325,8 @@
                 'echo OID=1.3.6.1.5.5.7.3.1 >>csrparams.inf\r\n' +
                 'certreq -new csrparams.inf ' + getFilename(certf.hostname) + '.csr';
 
-            //$scope.messages[5].content=iis;
             context.content = iis;
             return context;
-            //return $q.when(iis);
         }
 
         function make_any(certf, context) {
@@ -350,6 +344,7 @@
             }
             // #endregion
 
+            // #region Prepare P10
             context = context || {};
             var sequence = Promise.resolve();
             var pkcs10_simpl = new org.pkijs.simpl.PKCS10();
