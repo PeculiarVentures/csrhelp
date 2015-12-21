@@ -79,13 +79,28 @@
 				</md-content>
 				<md-content layout-padding>				    
 					<div layout layout-sm="column">
-						<md-input-container flex>
+						<!-- <md-input-container flex>
 							<label>Organization</label>
 							<input name="organization"
 								ng-model="certificate.organization"
 								ng-change="onBlurOrChange();hideResult()"
 								ng-blur="onBlurOrChange()">
-						</md-input-container>
+						</md-input-container> -->
+						<md-autocomplete flex
+							md-input-name='organization'
+							md-input-minlength="2"
+							md-no-cache="true"
+							md-delay="600"
+							md-search-text-change="onBlurOrChange();hideResult()"
+							md-selected-item-change="onBlurOrChange();hideResult()"
+							md-search-text='certificate.organization'
+							md-items='item in searchOrganization(certificate.organization)'
+							md-item-text='item.name'
+							md-floating-label='Organization'>
+							<md-item-template>
+								<span md-highlight-text="searchOrgText">{{item.name}}</span>
+							</md-item-template>
+						</md-autocomplete>
 						<md-input-container flex>
 							<label>Organization Unit</label>
 							<input name="organization_unit"
@@ -434,6 +449,7 @@
     <script src="./src/csrhelps/Csrhelps.js"></script>
     <script src="./src/csrhelps/CsrhelpController.js"></script>
     <script src="./src/csrhelps/CsrhelpService.js"></script>
+    <script src="./src/csrhelps/openCorporatesService.js"></script>
 
   </body>
 </html>

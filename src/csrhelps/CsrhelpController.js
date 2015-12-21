@@ -1,7 +1,7 @@
   angular
        .module('csrhelps')
        .controller('CsrhelpController', [
-          'csrhelpService', '$mdSidenav', '$mdBottomSheet', '$mdUtil',
+          'csrhelpService', 'OpenCorporates', '$mdSidenav', '$mdBottomSheet', '$mdUtil',
           '$log', '$q', '$scope', '$timeout',
           CsrhelpController
        ]);
@@ -14,7 +14,7 @@
    * @constructor
    */
   function CsrhelpController(
-    csrhelpService, $mdSidenav, $mdBottomSheet, $mdUtil,
+    csrhelpService, OpenCorporates, $mdSidenav, $mdBottomSheet, $mdUtil,
     $log, $q, $scope, $timeout) {
  
         if (window.crypto && 
@@ -94,6 +94,8 @@
                 algorithm:"RSA",
                 keysize:"2048"
         };
+
+        $scope.searchOrganization = searchOrganization;
         
         $scope.onChangeAlgorithmKey = function(){
             if($scope.certificate.algorithm =="ECC") {
@@ -228,6 +230,13 @@
               })
             }
             
+        }
+
+        function searchOrganization(q){
+            return OpenCorporates.search(q).then(function(data){
+                console.log('data', data);
+                return data;
+            });
         }
         
     }
