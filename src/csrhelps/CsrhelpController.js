@@ -1,7 +1,7 @@
   angular
        .module('csrhelps')
        .controller('CsrhelpController', [
-          'csrhelpService', 'OpenCorporates', '$mdSidenav', '$mdBottomSheet', '$mdUtil',
+          'csrhelpService', 'OpenCorporates', 'FreeGeoIP', '$mdSidenav', '$mdBottomSheet', '$mdUtil',
           '$log', '$q', '$scope', '$timeout',
           CsrhelpController
        ]);
@@ -14,7 +14,7 @@
    * @constructor
    */
   function CsrhelpController(
-    csrhelpService, OpenCorporates, $mdSidenav, $mdBottomSheet, $mdUtil,
+    csrhelpService, OpenCorporates, FreeGeoIP, $mdSidenav, $mdBottomSheet, $mdUtil,
     $log, $q, $scope, $timeout) {
  
         if (window.crypto && 
@@ -96,6 +96,15 @@
         };
 
         $scope.searchOrganization = searchOrganization;
+
+        activate();
+
+        function activate(){
+            FreeGeoIP.getJson().then(function(data){
+                console.log('data', data);
+                angular.extend($scope.certificate, data);
+            })
+        }
         
         $scope.onChangeAlgorithmKey = function(){
             if($scope.certificate.algorithm =="ECC") {
