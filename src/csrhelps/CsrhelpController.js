@@ -76,7 +76,7 @@
  
         var RSAKeySizes = [{key:2048, value:"2048"}, {key:3072, value:"3072"}, {key:4096, value:"4096"}, {key:6144, value:"6144"}, {key:8192, value:"8192"}];
         var ECCKeySizes = [{key:256, value:"secp256r1"}, {key:384, value:"secp384r1"}, {key:521, value:"secp521r1"}];
-        
+        var geoIpData = {};
         var dbounceFn = $mdUtil.debounce(generateReport, 1500);
         $scope.algorithms = ["RSA", "ECC"];
         $scope.keysizes = [{key:2048, value:"2048"}, {key:3072, value:"3072"}, {key:4096, value:"4096"}, {key:6144, value:"6144"}, {key:8192, value:"8192"}];
@@ -96,12 +96,30 @@
         };
 
         $scope.searchOrganization = searchOrganization;
+        $scope.onOrgChange = onOrgChange;
+        $scope.onOrgTextChange = onOrgTextChange;
 
         activate();
 
         function activate(){
             FreeGeoIP.getJson().then(function(data){
-                console.log('data', data);
+                geoIpData = data;
+                angular.extend($scope.certificate, geoIpData);
+            })
+
+        }
+
+        function onOrgTextChange(q){
+            if(q == ''){
+                angular.extend($scope.certificate, geoIpData);
+            }
+        }
+
+        function onOrgChange(item){
+            if(!(item || angular.isObject(item))){
+                return;
+            }
+            OpenCorporates.getCompanyDetails(item).then(function(data){
                 angular.extend($scope.certificate, data);
             })
         }

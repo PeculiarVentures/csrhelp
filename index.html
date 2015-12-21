@@ -91,8 +91,8 @@
 							md-input-minlength="2"
 							md-no-cache="true"
 							md-delay="600"
-							md-search-text-change="onBlurOrChange();hideResult()"
-							md-selected-item-change="onBlurOrChange();hideResult()"
+							md-search-text-change="onOrgTextChange(certificate.organization);hideResult()"
+							md-selected-item-change="onOrgChange(item);hideResult()"
 							md-search-text='certificate.organization'
 							md-items='item in searchOrganization(certificate.organization)'
 							md-item-text='item.name'
