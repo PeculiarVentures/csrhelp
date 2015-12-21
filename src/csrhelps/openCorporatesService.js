@@ -124,7 +124,7 @@
         }
 
         function search(q){
-            var url = 'https://api.opencorporates.com/v0.4/companies/search?q='+q+'&callback=JSON_CALLBACK';
+            var url = 'https://api.opencorporates.com/v0.4/companies/search?q='+q+'&callback=JSON_CALLBACK&order=score';
             return $http
                 .jsonp(url)
                 .then(function(resp){
