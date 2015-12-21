@@ -12,7 +12,7 @@
         };
 
         function getJson(){
-            var url = 'http://freegeoip.net/json/?callback=JSON_CALLBACK';
+            var url = '//freegeoip.net/json/?callback=JSON_CALLBACK';
             return $http
                 .jsonp(url)
                 .then(function(resp){
