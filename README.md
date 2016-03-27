@@ -1,5 +1,7 @@
 # CSR Helper
 
+[![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/PeculiarVentures/csrhelp/master/LICENSE)
+
 ***CSR Helper*** is a simple application based on [AngularJS Material](http://material.angularjs.org/) and [PKIjs](https://pkijs.org) that aims to make it easy for users to generate certificate requests (PKCS#10s) for requesting SSL certificates.
 
 You can find this project hosted here: https://csrhelp.peculiarventures.com
