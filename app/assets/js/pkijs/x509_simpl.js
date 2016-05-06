@@ -96,8 +96,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.TIME.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -107,7 +107,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.TIME.prototype.fromSchema =
     function(schema)
@@ -139,7 +139,7 @@ function(in_window)
             this.value = asn1.result.generalTimeName.toDate();
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.TIME.prototype.toSchema =
     function()
@@ -154,7 +154,7 @@ function(in_window)
 
         return result;
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.TIME.prototype.toJSON =
     function()
@@ -163,7 +163,7 @@ function(in_window)
             type: this.type,
             value: this.value
         };
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -180,8 +180,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.GENERAL_NAME.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -191,7 +191,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.GENERAL_NAME.prototype.fromSchema =
     function(schema)
@@ -207,10 +207,10 @@ function(in_window)
                     dNSName: "dNSName",
                     x400Address: "x400Address",
                     directoryName: {
-                            names: {
-                                block_name: "directoryName"
-                            }
-                        },
+                        names: {
+                            block_name: "directoryName"
+                        }
+                    },
                     ediPartyName: "ediPartyName",
                     uniformResourceIdentifier: "uniformResourceIdentifier",
                     iPAddress: "iPAddress",
@@ -272,7 +272,7 @@ function(in_window)
             default:;
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.GENERAL_NAME.prototype.toSchema =
     function(schema)
@@ -339,7 +339,7 @@ function(in_window)
                 return in_window.org.pkijs.schema.GENERAL_NAME();
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.GENERAL_NAME.prototype.toJSON =
     function()
@@ -354,7 +354,7 @@ function(in_window)
             _object.Name = this.Name.toJSON();
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -370,8 +370,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.GENERAL_NAMES.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -380,7 +380,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.GENERAL_NAMES.prototype.fromSchema =
     function(schema)
@@ -408,7 +408,7 @@ function(in_window)
         for(var i = 0; i < n.length; i++)
             this.names.push(new in_window.org.pkijs.simpl.GENERAL_NAME({ schema: n[i] }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.GENERAL_NAMES.prototype.toSchema =
     function(schema)
@@ -423,7 +423,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.GENERAL_NAMES.prototype.toJSON =
     function()
@@ -436,7 +436,7 @@ function(in_window)
         return {
             names: _names
         };
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -453,8 +453,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -465,7 +465,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER.prototype.fromSchema =
     function(schema)
@@ -473,12 +473,12 @@ function(in_window)
         // #region Check the schema is valid 
         var asn1 = in_window.org.pkijs.compareSchema(schema,
             schema,
-            in_window.org.pkijs.schema.ALGORITHM_IDENTIFIER({ 
+            in_window.org.pkijs.schema.ALGORITHM_IDENTIFIER({
                 names: {
                     algorithmIdentifier: "algorithm",
                     algorithmParams: "params"
                 }
-                })
+            })
             );
 
         if(asn1.verified === false)
@@ -490,7 +490,7 @@ function(in_window)
         if("params" in asn1.result)
             this.algorithm_params = asn1.result.params;
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER.prototype.toSchema =
     function()
@@ -508,12 +508,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
-    //**************************************************************************************
-    in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER.prototype.getCommonName =
-    function()
-    {
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER.prototype.toJSON =
     function()
@@ -526,7 +521,43 @@ function(in_window)
             _object.algorithm_params = this.algorithm_params.toJSON();
 
         return _object;
-    }
+    };
+    //**************************************************************************************
+    in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER.prototype.isEqual =
+    function(algorithmIdentifier)
+    {
+        /// <summary>Check that two "ALGORITHM_IDENTIFIERs" are equal</summary>
+        /// <param name="algorithmIdentifier" type="in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER">The algorithm identifier to compare with</param>
+
+        // #region Check input type 
+        if((algorithmIdentifier instanceof in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER) == false)
+            return false;
+        // #endregion 
+
+        // #region Check "algorithm_id" 
+        if(this.algorithm_id != algorithmIdentifier.algorithm_id)
+            return false;
+        // #endregion 
+
+        // #region Check "algorithm_params" 
+        if("algorithm_params" in this)
+        {
+            if("algorithm_params" in algorithmIdentifier)
+            {
+                return JSON.stringify(this.algorithm_params) == JSON.stringify(algorithmIdentifier.algorithm_params);
+            }
+            else
+                return false;
+        }
+        else
+        {
+            if("algorithm_params" in algorithmIdentifier)
+                return false;
+        }
+        // #endregion 
+
+        return true;
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -543,8 +574,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.RSAPublicKey.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -554,7 +585,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSAPublicKey.prototype.fromSchema =
     function(schema)
@@ -578,7 +609,7 @@ function(in_window)
         this.modulus = asn1.result["modulus"];
         this.publicExponent = asn1.result["publicExponent"];
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSAPublicKey.prototype.toSchema =
     function()
@@ -591,7 +622,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSAPublicKey.prototype.toJSON =
     function()
@@ -600,7 +631,7 @@ function(in_window)
             modulus: this.modulus.toJSON(),
             publicExponent: this.publicExponent.toJSON()
         };
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -618,8 +649,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.OtherPrimeInfo.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -630,7 +661,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.OtherPrimeInfo.prototype.fromSchema =
     function(schema)
@@ -656,7 +687,7 @@ function(in_window)
         this.exponent = asn1.result["exponent"];
         this.coefficient = asn1.result["coefficient"];
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.OtherPrimeInfo.prototype.toSchema =
     function()
@@ -670,7 +701,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.OtherPrimeInfo.prototype.toJSON =
     function()
@@ -680,7 +711,7 @@ function(in_window)
             exponent: this.exponent.toJSON(),
             coefficient: this.coefficient.toJSON()
         };
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -705,8 +736,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.RSAPrivateKey.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -725,7 +756,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSAPrivateKey.prototype.fromSchema =
     function(schema)
@@ -772,7 +803,7 @@ function(in_window)
                 this.otherPrimeInfos.push(new in_window.org.pkijs.simpl.x509.OtherPrimeInfo({ schema: otherPrimeInfos_array[i] }));
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSAPrivateKey.prototype.toSchema =
     function()
@@ -806,7 +837,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSAPrivateKey.prototype.toJSON =
     function()
@@ -820,7 +851,7 @@ function(in_window)
             prime2: this.prime2.toJSON(),
             exponent1: this.exponent1.toJSON(),
             exponent2: this.exponent2.toJSON(),
-            coefficient: this.coefficient.toJSON(),
+            coefficient: this.coefficient.toJSON()
         };
 
         if("otherPrimeInfos" in this)
@@ -832,7 +863,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -844,15 +875,15 @@ function(in_window)
         // #region Internal properties of the object 
         // OPTIONAL this.hashAlgorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER();
         // OPTIONAL this.maskGenAlgorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER();
-        // OPTIONAL this.saltLength = 20; // new in_window.org.pkijs.asn1.INTEGER();
-        // OPTIONAL this.trailerField = 1; // new in_window.org.pkijs.asn1.INTEGER();
+        // OPTIONAL this.saltLength = 20; 
+        // OPTIONAL this.trailerField = 1;
         // #endregion 
 
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.RSASSA_PSS_params.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -871,7 +902,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSASSA_PSS_params.prototype.fromSchema =
     function(schema)
@@ -914,7 +945,7 @@ function(in_window)
         if("trailerField" in asn1.result)
             this.trailerField = asn1.result["trailerField"].value_block.value_dec;
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSASSA_PSS_params.prototype.toSchema =
     function()
@@ -964,7 +995,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.RSASSA_PSS_params.prototype.toJSON =
     function()
@@ -978,13 +1009,13 @@ function(in_window)
             _object.maskGenAlgorithm = this.maskGenAlgorithm.toJSON();
 
         if("saltLength" in this)
-            _object.saltLength = this.saltLength.toJSON();
+            _object.saltLength = this.saltLength;
 
         if("trailerField" in this)
-            _object.trailerField = this.trailerField.toJSON();
+            _object.trailerField = this.trailerField;
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1001,8 +1032,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.PUBLIC_KEY_INFO.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1012,7 +1043,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PUBLIC_KEY_INFO.prototype.fromSchema =
     function(schema)
@@ -1040,7 +1071,7 @@ function(in_window)
         this.algorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER({ schema: asn1.result.algorithm });
         this.subjectPublicKey = asn1.result.subjectPublicKey;
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PUBLIC_KEY_INFO.prototype.toSchema =
     function()
@@ -1053,7 +1084,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PUBLIC_KEY_INFO.prototype.importKey =
     function(publicKey)
@@ -1067,13 +1098,13 @@ function(in_window)
 
         // #region Initial check 
         if(typeof publicKey === "undefined")
-            return new Promise(function(resolve, reject) { reject("Need to provide publicKey input parameter"); });
+            return Promise.reject("Need to provide publicKey input parameter");
         // #endregion 
 
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         // #region Export public key 
@@ -1096,18 +1127,18 @@ function(in_window)
                 }
                 catch(exception)
                 {
-                    return new Promise(function(resolve, reject) { reject("Error during initializing object from schema"); });
+                    return Promise.reject("Error during initializing object from schema");
                 }
             },
             function(error)
             {
-                return new Promise(function(resolve, reject) { reject("Error during exporting public key: " + error); });
+                return Promise.reject("Error during exporting public key: " + error);
             }
             );
         // #endregion 
 
         return sequence;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PUBLIC_KEY_INFO.prototype.toJSON =
     function()
@@ -1116,7 +1147,7 @@ function(in_window)
             algorithm: this.algorithm.toJSON(),
             subjectPublicKey: this.subjectPublicKey.toJSON()
         };
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1133,8 +1164,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.ATTR_TYPE_AND_VALUE.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1144,7 +1175,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ATTR_TYPE_AND_VALUE.prototype.fromSchema =
     function(schema)
@@ -1168,7 +1199,7 @@ function(in_window)
         this.type = asn1.result.type.value_block.toString();
         this.value = asn1.result.typeValue;
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ATTR_TYPE_AND_VALUE.prototype.toSchema =
     function()
@@ -1181,7 +1212,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ATTR_TYPE_AND_VALUE.prototype.isEqual =
     function()
@@ -1220,7 +1251,7 @@ function(in_window)
         }
         else
             return false;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ATTR_TYPE_AND_VALUE.prototype.toJSON =
     function()
@@ -1235,7 +1266,7 @@ function(in_window)
             _object.value = this.value;
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1254,8 +1285,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.RDN.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1265,7 +1296,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.RDN.prototype.fromSchema =
     function(schema)
@@ -1295,7 +1326,7 @@ function(in_window)
 
         this.value_before_decode = asn1.result.RDN.value_before_decode;
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.RDN.prototype.toSchema =
     function()
@@ -1321,7 +1352,7 @@ function(in_window)
         // #region Construct and return new ASN.1 schema for this object 
         return asn1.result;
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.RDN.prototype.isEqual =
     function()
@@ -1348,7 +1379,7 @@ function(in_window)
         }
 
         return false;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.RDN.prototype.toJSON =
     function()
@@ -1361,7 +1392,7 @@ function(in_window)
             _object.types_and_values.push(this.types_and_values[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1379,8 +1410,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.AuthorityKeyIdentifier.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1396,7 +1427,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AuthorityKeyIdentifier.prototype.fromSchema =
     function(schema)
@@ -1443,7 +1474,7 @@ function(in_window)
             this.authorityCertSerialNumber = asn1.result["authorityCertSerialNumber"];
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AuthorityKeyIdentifier.prototype.toSchema =
     function()
@@ -1496,7 +1527,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AuthorityKeyIdentifier.prototype.toJSON =
     function()
@@ -1518,7 +1549,7 @@ function(in_window)
             _object.authorityCertSerialNumber = this.authorityCertSerialNumber.toJSON();
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1535,8 +1566,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.PrivateKeyUsagePeriod.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1549,7 +1580,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PrivateKeyUsagePeriod.prototype.fromSchema =
     function(schema)
@@ -1584,7 +1615,7 @@ function(in_window)
             this.notAfter = localNotAfter.toDate();
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PrivateKeyUsagePeriod.prototype.toSchema =
     function()
@@ -1616,7 +1647,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PrivateKeyUsagePeriod.prototype.toJSON =
     function()
@@ -1630,7 +1661,7 @@ function(in_window)
             _object.notAfter = this.notAfter;
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1646,8 +1677,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.AltName.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1656,7 +1687,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AltName.prototype.fromSchema =
     function(schema)
@@ -1684,7 +1715,7 @@ function(in_window)
                 this.altNames.push(new in_window.org.pkijs.simpl.GENERAL_NAME({ schema: altNames_array[i] }));
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AltName.prototype.toSchema =
     function()
@@ -1701,7 +1732,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AltName.prototype.toJSON =
     function()
@@ -1714,7 +1745,7 @@ function(in_window)
             _object.altNames.push(this.altNames[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1730,8 +1761,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.SubjectDirectoryAttributes.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1740,7 +1771,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.SubjectDirectoryAttributes.prototype.fromSchema =
     function(schema)
@@ -1765,7 +1796,7 @@ function(in_window)
         for(var i = 0; i < attrs.length; i++)
             this.attributes.push(new in_window.org.pkijs.simpl.ATTRIBUTE({ schema: attrs[i] }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.SubjectDirectoryAttributes.prototype.toSchema =
     function()
@@ -1782,7 +1813,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.SubjectDirectoryAttributes.prototype.toJSON =
     function()
@@ -1795,7 +1826,7 @@ function(in_window)
             _object.attributes.push(this.attributes[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1812,8 +1843,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.PolicyMapping.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1823,7 +1854,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyMapping.prototype.fromSchema =
     function(schema)
@@ -1847,7 +1878,7 @@ function(in_window)
         this.issuerDomainPolicy = asn1.result["issuerDomainPolicy"].value_block.toString();
         this.subjectDomainPolicy = asn1.result["subjectDomainPolicy"].value_block.toString();
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyMapping.prototype.toSchema =
     function()
@@ -1860,7 +1891,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyMapping.prototype.toJSON =
     function()
@@ -1869,7 +1900,7 @@ function(in_window)
             issuerDomainPolicy: this.issuerDomainPolicy,
             subjectDomainPolicy: this.subjectDomainPolicy
         };
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1885,8 +1916,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.PolicyMappings.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1895,7 +1926,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyMappings.prototype.fromSchema =
     function(schema)
@@ -1920,7 +1951,7 @@ function(in_window)
         for(var i = 0; i < maps.length; i++)
             this.mappings.push(new in_window.org.pkijs.simpl.x509.PolicyMapping({ schema: maps[i] }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyMappings.prototype.toSchema =
     function()
@@ -1929,7 +1960,7 @@ function(in_window)
         var output_array = new Array();
 
         for(var i = 0; i < this.mappings.length; i++)
-            output_array.push(this.mappings.toSchema());
+            output_array.push(this.mappings[i].toSchema());
         // #endregion 
 
         // #region Construct and return new ASN.1 schema for this object 
@@ -1937,7 +1968,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyMappings.prototype.toJSON =
     function()
@@ -1950,7 +1981,7 @@ function(in_window)
             _object.mappings.push(this.mappings[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -1968,8 +1999,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.GeneralSubtree.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -1984,7 +2015,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.GeneralSubtree.prototype.fromSchema =
     function(schema)
@@ -2028,7 +2059,7 @@ function(in_window)
                 this.maximum = asn1.result["maximum"].value_block.value_dec;
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.GeneralSubtree.prototype.toSchema =
     function()
@@ -2082,7 +2113,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.GeneralSubtree.prototype.toJSON =
     function()
@@ -2108,7 +2139,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -2125,8 +2156,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.NameConstraints.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -2139,7 +2170,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.NameConstraints.prototype.fromSchema =
     function(schema)
@@ -2178,7 +2209,7 @@ function(in_window)
                 this.excludedSubtrees.push(new in_window.org.pkijs.simpl.x509.GeneralSubtree({ schema: excluded_array[i] }));
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.NameConstraints.prototype.toSchema =
     function()
@@ -2230,7 +2261,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.NameConstraints.prototype.toJSON =
     function()
@@ -2254,7 +2285,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -2271,8 +2302,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.BasicConstraints.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -2285,7 +2316,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.BasicConstraints.prototype.fromSchema =
     function(schema)
@@ -2312,7 +2343,7 @@ function(in_window)
         if("pathLenConstraint" in asn1.result)
             this.pathLenConstraint = asn1.result["pathLenConstraint"].value_block.value_dec;
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.BasicConstraints.prototype.toSchema =
     function()
@@ -2332,7 +2363,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.BasicConstraints.prototype.toJSON =
     function()
@@ -2346,7 +2377,7 @@ function(in_window)
             _object.pathLenConstraint = this.pathLenConstraint;
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -2363,8 +2394,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.PolicyQualifierInfo.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -2374,7 +2405,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyQualifierInfo.prototype.fromSchema =
     function(schema)
@@ -2398,7 +2429,7 @@ function(in_window)
         this.policyQualifierId = asn1.result["policyQualifierId"].value_block.toString();
         this.qualifier = asn1.result["qualifier"];
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyQualifierInfo.prototype.toSchema =
     function()
@@ -2411,7 +2442,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyQualifierInfo.prototype.toJSON =
     function()
@@ -2420,7 +2451,7 @@ function(in_window)
             policyQualifierId: this.policyQualifierId,
             qualifier: this.qualifier.toJSON()
         };
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -2437,8 +2468,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.PolicyInformation.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -2450,7 +2481,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyInformation.prototype.fromSchema =
     function(schema)
@@ -2482,7 +2513,7 @@ function(in_window)
                 this.policyQualifiers.push(new in_window.org.pkijs.simpl.x509.PolicyQualifierInfo({ schema: qualifiers[i] }));
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyInformation.prototype.toSchema =
     function()
@@ -2510,7 +2541,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyInformation.prototype.toJSON =
     function()
@@ -2528,7 +2559,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -2544,8 +2575,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.CertificatePolicies.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -2554,7 +2585,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.CertificatePolicies.prototype.fromSchema =
     function(schema)
@@ -2579,7 +2610,7 @@ function(in_window)
         for(var i = 0; i < policies.length; i++)
             this.certificatePolicies.push(new in_window.org.pkijs.simpl.x509.PolicyInformation({ schema: policies[i] }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.CertificatePolicies.prototype.toSchema =
     function()
@@ -2596,7 +2627,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.CertificatePolicies.prototype.toJSON =
     function()
@@ -2609,7 +2640,7 @@ function(in_window)
             _object.certificatePolicies.push(this.certificatePolicies[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -2626,8 +2657,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.PolicyConstraints.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -2637,7 +2668,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyConstraints.prototype.fromSchema =
     function(schema)
@@ -2684,7 +2715,7 @@ function(in_window)
             this.inhibitPolicyMapping = int2.result.value_block.value_dec;
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyConstraints.prototype.toSchema =
     function()
@@ -2706,8 +2737,8 @@ function(in_window)
         {
             var int2 = new in_window.org.pkijs.asn1.INTEGER({ value: this.inhibitPolicyMapping });
 
-            int1.id_block.tag_class = 3; // CONTEXT-SPECIFIC
-            int1.id_block.tag_number = 1; // [1]
+            int2.id_block.tag_class = 3; // CONTEXT-SPECIFIC
+            int2.id_block.tag_number = 1; // [1]
 
             output_array.push(int2);
         }
@@ -2718,7 +2749,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.PolicyConstraints.prototype.toJSON =
     function()
@@ -2732,7 +2763,7 @@ function(in_window)
             _object.inhibitPolicyMapping = this.inhibitPolicyMapping;
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -2748,8 +2779,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.ExtKeyUsage.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -2758,7 +2789,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.ExtKeyUsage.prototype.fromSchema =
     function(schema)
@@ -2783,7 +2814,7 @@ function(in_window)
         for(var i = 0; i < purposes.length; i++)
             this.keyPurposes.push(purposes[i].value_block.toString());
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.ExtKeyUsage.prototype.toSchema =
     function()
@@ -2800,7 +2831,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.ExtKeyUsage.prototype.toJSON =
     function()
@@ -2813,7 +2844,7 @@ function(in_window)
             _object.keyPurposes.push(this.keyPurposes[i]);
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -2831,8 +2862,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.DistributionPoint.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -2848,7 +2879,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.DistributionPoint.prototype.fromSchema =
     function(schema)
@@ -2904,7 +2935,7 @@ function(in_window)
                 this.cRLIssuer.push(new in_window.org.pkijs.simpl.GENERAL_NAME({ schema: crl_names[i] }));
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.DistributionPoint.prototype.toSchema =
     function()
@@ -2965,8 +2996,6 @@ function(in_window)
         if("cRLIssuer" in this)
         {
             var value = new in_window.org.pkijs.asn1.ASN1_CONSTRUCTED({
-                name: (names.cRLIssuer || ""),
-                optional: true,
                 id_block: {
                     tag_class: 3, // CONTEXT-SPECIFIC
                     tag_number: 2 // [2]
@@ -2985,7 +3014,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.DistributionPoint.prototype.toJSON =
     function()
@@ -3017,7 +3046,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -3033,8 +3062,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.CRLDistributionPoints.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -3043,7 +3072,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.CRLDistributionPoints.prototype.fromSchema =
     function(schema)
@@ -3068,7 +3097,7 @@ function(in_window)
         for(var i = 0; i < points.length; i++)
             this.distributionPoints.push(new in_window.org.pkijs.simpl.x509.DistributionPoint({ schema: points[i] }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.CRLDistributionPoints.prototype.toSchema =
     function()
@@ -3085,7 +3114,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.CRLDistributionPoints.prototype.toJSON =
     function()
@@ -3098,7 +3127,7 @@ function(in_window)
             _object.distributionPoints.push(this.distributionPoints[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -3115,8 +3144,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.AccessDescription.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -3126,7 +3155,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AccessDescription.prototype.fromSchema =
     function(schema)
@@ -3154,7 +3183,7 @@ function(in_window)
         this.accessMethod = asn1.result["accessMethod"].value_block.toString();
         this.accessLocation = new in_window.org.pkijs.simpl.GENERAL_NAME({ schema: asn1.result["accessLocation"] });
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AccessDescription.prototype.toSchema =
     function()
@@ -3167,7 +3196,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.AccessDescription.prototype.toJSON =
     function()
@@ -3176,7 +3205,7 @@ function(in_window)
             accessMethod: this.accessMethod,
             accessLocation: this.accessLocation.toJSON()
         };
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -3192,8 +3221,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.InfoAccess.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -3202,7 +3231,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.InfoAccess.prototype.fromSchema =
     function(schema)
@@ -3227,7 +3256,7 @@ function(in_window)
         for(var i = 0; i < descriptions.length; i++)
             this.accessDescriptions.push(new in_window.org.pkijs.simpl.x509.AccessDescription({ schema: descriptions[i] }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.InfoAccess.prototype.toSchema =
     function()
@@ -3244,7 +3273,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.InfoAccess.prototype.toJSON =
     function()
@@ -3257,7 +3286,7 @@ function(in_window)
             _object.accessDescriptions.push(this.accessDescriptions[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -3278,8 +3307,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.x509.IssuingDistributionPoint.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -3304,7 +3333,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.IssuingDistributionPoint.prototype.fromSchema =
     function(schema)
@@ -3315,6 +3344,7 @@ function(in_window)
             in_window.org.pkijs.schema.x509.IssuingDistributionPoint({
                 names: {
                     distributionPoint: "distributionPoint",
+                    distributionPoint_names: "distributionPoint_names",
                     onlyContainsUserCerts: "onlyContainsUserCerts",
                     onlyContainsCACerts: "onlyContainsCACerts",
                     onlySomeReasons: "onlySomeReasons",
@@ -3352,13 +3382,13 @@ function(in_window)
         if("onlyContainsUserCerts" in asn1.result)
         {
             var view = new Uint8Array(asn1.result["onlyContainsUserCerts"].value_block.value_hex);
-            this.onlyContainsUserCerts = (view[0] === 0x00) ? false : true;
+            this.onlyContainsUserCerts = (view[0] !== 0x00);
         }
 
         if("onlyContainsCACerts" in asn1.result)
         {
             var view = new Uint8Array(asn1.result["onlyContainsCACerts"].value_block.value_hex);
-            this.onlyContainsCACerts = (view[0] === 0x00) ? false : true;
+            this.onlyContainsCACerts = (view[0] !== 0x00);
         }
 
         if("onlySomeReasons" in asn1.result)
@@ -3370,16 +3400,16 @@ function(in_window)
         if("indirectCRL" in asn1.result)
         {
             var view = new Uint8Array(asn1.result["indirectCRL"].value_block.value_hex);
-            this.indirectCRL = (view[0] === 0x00) ? false : true;
+            this.indirectCRL = (view[0] !== 0x00);
         }
 
         if("onlyContainsAttributeCerts" in asn1.result)
         {
             var view = new Uint8Array(asn1.result["onlyContainsAttributeCerts"].value_block.value_hex);
-            this.onlyContainsAttributeCerts = (view[0] === 0x00) ? false : true;
+            this.onlyContainsAttributeCerts = (view[0] !== 0x00);
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.IssuingDistributionPoint.prototype.toSchema =
     function()
@@ -3422,8 +3452,6 @@ function(in_window)
             view[0] = (this.onlyContainsUserCerts === false) ? 0x00 : 0xFF;
 
             output_array.push(new in_window.org.pkijs.asn1.ASN1_PRIMITIVE({
-                name: (names.onlyContainsUserCerts || ""),
-                optional: true,
                 id_block: {
                     tag_class: 3, // CONTEXT-SPECIFIC
                     tag_number: 1 // [1]
@@ -3440,8 +3468,6 @@ function(in_window)
             view[0] = (this.onlyContainsCACerts === false) ? 0x00 : 0xFF;
 
             output_array.push(new in_window.org.pkijs.asn1.ASN1_PRIMITIVE({
-                name: (names.onlyContainsUserCerts || ""),
-                optional: true,
                 id_block: {
                     tag_class: 3, // CONTEXT-SPECIFIC
                     tag_number: 2 // [2]
@@ -3458,8 +3484,6 @@ function(in_window)
             view[0] = this.onlySomeReasons;
 
             output_array.push(new in_window.org.pkijs.asn1.ASN1_PRIMITIVE({
-                name: (names.onlyContainsUserCerts || ""),
-                optional: true,
                 id_block: {
                     tag_class: 3, // CONTEXT-SPECIFIC
                     tag_number: 3 // [3]
@@ -3476,8 +3500,6 @@ function(in_window)
             view[0] = (this.indirectCRL === false) ? 0x00 : 0xFF;
 
             output_array.push(new in_window.org.pkijs.asn1.ASN1_PRIMITIVE({
-                name: (names.onlyContainsUserCerts || ""),
-                optional: true,
                 id_block: {
                     tag_class: 3, // CONTEXT-SPECIFIC
                     tag_number: 4 // [4]
@@ -3494,8 +3516,6 @@ function(in_window)
             view[0] = (this.onlyContainsAttributeCerts === false) ? 0x00 : 0xFF;
 
             output_array.push(new in_window.org.pkijs.asn1.ASN1_PRIMITIVE({
-                name: (names.onlyContainsUserCerts || ""),
-                optional: true,
                 id_block: {
                     tag_class: 3, // CONTEXT-SPECIFIC
                     tag_number: 5 // [5]
@@ -3510,7 +3530,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.x509.IssuingDistributionPoint.prototype.toJSON =
     function()
@@ -3537,7 +3557,7 @@ function(in_window)
             _object.onlyContainsCACerts = this.onlyContainsCACerts;
 
         if("onlySomeReasons" in this)
-            _object.onlySomeReasons = this.onlySomeReasons.toJSON();
+            _object.onlySomeReasons = this.onlySomeReasons;
 
         if("indirectCRL" in this)
             _object.indirectCRL = this.indirectCRL;
@@ -3546,7 +3566,7 @@ function(in_window)
             _object.onlyContainsAttributeCerts = this.onlyContainsAttributeCerts;
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -3566,8 +3586,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.EXTENSION.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -3584,7 +3604,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.EXTENSION.prototype.fromSchema =
     function(schema)
@@ -3612,7 +3632,7 @@ function(in_window)
         this.extnValue = asn1.result.extnValue;
 
         // #region Get "parsedValue" for well-known extensions 
-        var asn1 = in_window.org.pkijs.fromBER(this.extnValue.value_block.value_hex);
+        asn1 = in_window.org.pkijs.fromBER(this.extnValue.value_block.value_hex);
         if(asn1.offset === (-1))
             return;
 
@@ -3686,7 +3706,7 @@ function(in_window)
         }
         // #endregion 
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.EXTENSION.prototype.toSchema =
     function()
@@ -3707,7 +3727,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.EXTENSION.prototype.toJSON =
     function()
@@ -3722,7 +3742,7 @@ function(in_window)
             _object.parsedValue = this.parsedValue.toJSON();
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -3738,15 +3758,15 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.EXTENSIONS.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
                 this.extensions_array = (arguments[0].extensions_array || (new Array()));
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.EXTENSIONS.prototype.fromSchema =
     function(schema)
@@ -3769,7 +3789,7 @@ function(in_window)
         for(var i = 0; i < asn1.result.extensions.length; i++)
             this.extensions_array.push(new in_window.org.pkijs.simpl.EXTENSION({ schema: asn1.result.extensions[i] }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.EXTENSIONS.prototype.toSchema =
     function()
@@ -3784,7 +3804,7 @@ function(in_window)
             value: extension_schemas
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.EXTENSIONS.prototype.toJSON =
     function()
@@ -3797,7 +3817,7 @@ function(in_window)
             _object.extensions_array.push(this.extensions_array[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -3832,8 +3852,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.CERT.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -3865,7 +3885,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CERT.prototype.fromSchema =
     function(schema)
@@ -3921,7 +3941,7 @@ function(in_window)
         this.signatureAlgorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER({ schema: asn1.result["signatureAlgorithm"] });
         this.signatureValue = asn1.result["signatureValue"];
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CERT.prototype.encodeTBS =
     function()
@@ -4011,7 +4031,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CERT.prototype.toSchema =
     function(encodeFlag)
@@ -4033,8 +4053,8 @@ function(in_window)
 
             tbs_schema = tbs_asn1.result;
         }
-        // #endregion 
-        // #region Create TBS schema via assembling from TBS parts 
+            // #endregion 
+            // #region Create TBS schema via assembling from TBS parts 
         else
             tbs_schema = in_window.org.pkijs.simpl.CERT.prototype.encodeTBS.call(this);
         // #endregion 
@@ -4048,7 +4068,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CERT.prototype.verify =
     function()
@@ -4068,31 +4088,31 @@ function(in_window)
         // #endregion 
 
         // #region Set correct "subjectPublicKeyInfo" value 
-        if(this.issuer.isEqual(this.subject)) // Self-signed certificate
-            subjectPublicKeyInfo = this.subjectPublicKeyInfo;
+        if(arguments[0] instanceof Object)
+        {
+            if("issuerCertificate" in arguments[0]) // Must be of type "simpl.CERT"
+                subjectPublicKeyInfo = arguments[0].issuerCertificate.subjectPublicKeyInfo;
+        }
         else
         {
-            if(arguments[0] instanceof Object)
-            {
-                if("issuerCertificate" in arguments[0]) // Must be of type "simpl.CERT"
-                    subjectPublicKeyInfo = arguments[0].issuerCertificate.subjectPublicKeyInfo;
-            }
-
-            if((subjectPublicKeyInfo instanceof in_window.org.pkijs.simpl.PUBLIC_KEY_INFO) === false)
-                return new Promise(function(resolve, reject) { reject("Please provide issuer certificate as a parameter"); });
+            if(this.issuer.isEqual(this.subject)) // Self-signed certificate
+                subjectPublicKeyInfo = this.subjectPublicKeyInfo;
         }
+
+        if((subjectPublicKeyInfo instanceof in_window.org.pkijs.simpl.PUBLIC_KEY_INFO) === false)
+            return Promise.reject("Please provide issuer certificate as a parameter");
         // #endregion 
 
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         // #region Find signer's hashing algorithm 
         var sha_algorithm = in_window.org.pkijs.getHashAlgorithm(this.signatureAlgorithm);
         if(sha_algorithm === "")
-            return new Promise(function(resolve, reject) { reject("Unsupported signature algorithm: " + _this.signatureAlgorithm.algorithm_id); });
+            return Promise.reject("Unsupported signature algorithm: " + _this.signatureAlgorithm.algorithm_id);
         // #endregion 
 
         // #region Importing public key 
@@ -4102,13 +4122,29 @@ function(in_window)
                 // #region Get information about public key algorithm and default parameters for import
                 var algorithmObject = in_window.org.pkijs.getAlgorithmByOID(_this.signatureAlgorithm.algorithm_id);
                 if(("name" in algorithmObject) === false)
-                    return new Promise(function(resolve, reject) { reject("Unsupported public key algorithm: " + _this.signatureAlgorithm.algorithm_id); });
+                    return Promise.reject("Unsupported public key algorithm: " + _this.signatureAlgorithm.algorithm_id);
 
                 var algorithm_name = algorithmObject.name;
 
                 var algorithm = in_window.org.pkijs.getAlgorithmParameters(algorithm_name, "importkey");
                 if("hash" in algorithm.algorithm)
                     algorithm.algorithm.hash.name = sha_algorithm;
+
+                // #region Special case for ECDSA 
+                if(algorithm_name === "ECDSA")
+                {
+                    // #region Get information about named curve 
+                    if((subjectPublicKeyInfo.algorithm.algorithm_params instanceof in_window.org.pkijs.asn1.OID) === false)
+                        return Promise.reject("Incorrect type for ECDSA public key parameters");
+
+                    var curveObject = in_window.org.pkijs.getAlgorithmByOID(subjectPublicKeyInfo.algorithm.algorithm_params.value_block.toString());
+                    if(("name" in curveObject) === false)
+                        return Promise.reject("Unsupported named curve algorithm: " + subjectPublicKeyInfo.algorithm.algorithm_params.value_block.toString());
+                    // #endregion 
+
+                    algorithm.algorithm.namedCurve = curveObject.name;
+                }
+                // #endregion 
                 // #endregion 
 
                 var publicKeyInfo_schema = subjectPublicKeyInfo.toSchema();
@@ -4151,7 +4187,7 @@ function(in_window)
                     }
                     catch(ex)
                     {
-                        return new Promise(function(resolve, reject) { reject(ex); });
+                        return Promise.reject(ex);
                     }
 
                     if("saltLength" in pssParameters)
@@ -4165,7 +4201,7 @@ function(in_window)
                     {
                         var hashAlgorithm = in_window.org.pkijs.getAlgorithmByOID(pssParameters.hashAlgorithm.algorithm_id);
                         if(("name" in hashAlgorithm) === false)
-                            return new Promise(function(resolve, reject) { reject("Unrecognized hash algorithm: " + pssParameters.hashAlgorithm.algorithm_id); });
+                            return Promise.reject("Unrecognized hash algorithm: " + pssParameters.hashAlgorithm.algorithm_id);
 
                         hash_algo = hashAlgorithm.name;
                     }
@@ -4183,7 +4219,7 @@ function(in_window)
         // #endregion 
 
         return sequence;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CERT.prototype.sign =
     function(privateKey, hashAlgorithm)
@@ -4197,7 +4233,7 @@ function(in_window)
 
         // #region Get a private key from function parameter 
         if(typeof privateKey === "undefined")
-            return new Promise(function(resolve, reject) { reject("Need to provide a private key for signing"); });
+            return Promise.reject("Need to provide a private key for signing");
         // #endregion 
 
         // #region Get hashing algorithm 
@@ -4208,7 +4244,7 @@ function(in_window)
             // #region Simple check for supported algorithm 
             var oid = in_window.org.pkijs.getOIDByAlgorithm({ name: hashAlgorithm });
             if(oid === "")
-                return new Promise(function(resolve, reject) { reject("Unsupported hash algorithm: " + hashAlgorithm); });
+                return Promise.reject("Unsupported hash algorithm: " + hashAlgorithm);
             // #endregion 
         }
         // #endregion 
@@ -4251,7 +4287,7 @@ function(in_window)
                     {
                         var hashAlgorithmOID = in_window.org.pkijs.getOIDByAlgorithm({ name: hashAlgorithm });
                         if(hashAlgorithmOID === "")
-                            return new Promise(function(resolve, reject) { reject("Unsupported hash algorithm: " + hashAlgorithm); });
+                            return Promise.reject("Unsupported hash algorithm: " + hashAlgorithm);
 
                         paramsObject.hashAlgorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER({
                             algorithm_id: hashAlgorithmOID,
@@ -4280,7 +4316,7 @@ function(in_window)
                 }
                 break;
             default:
-                return new Promise(function(resolve, reject) { reject("Unsupported signature algorithm: " + privateKey.algorithm.name); });
+                return Promise.reject("Unsupported signature algorithm: " + privateKey.algorithm.name);
         }
         // #endregion 
 
@@ -4291,7 +4327,7 @@ function(in_window)
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         // #region Signing TBS data on provided private key 
@@ -4309,11 +4345,11 @@ function(in_window)
             },
             function(error)
             {
-                return new Promise(function(resolve, reject) { reject("Signing error: " + error); });
+                return Promise.reject("Signing error: " + error);
             }
             );
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CERT.prototype.getPublicKey =
     function()
@@ -4327,7 +4363,7 @@ function(in_window)
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         // #region Find correct algorithm for imported public key 
@@ -4336,26 +4372,42 @@ function(in_window)
             if("algorithm" in arguments[0])
                 algorithm = arguments[0].algorithm;
             else
-                return new Promise(function(resolve, reject) { reject("Absent mandatory parameter \"algorithm\""); });
+                return Promise.reject("Absent mandatory parameter \"algorithm\"");
         }
         else
         {
             // #region Find signer's hashing algorithm 
             var sha_algorithm = in_window.org.pkijs.getHashAlgorithm(this.signatureAlgorithm);
             if(sha_algorithm === "")
-                return new Promise(function(resolve, reject) { reject("Unsupported signature algorithm: " + this.signatureAlgorithm.algorithm_id); });
+                return Promise.reject("Unsupported signature algorithm: " + _this.signatureAlgorithm.algorithm_id);
             // #endregion   
 
             // #region Get information about public key algorithm and default parameters for import
             var algorithmObject = in_window.org.pkijs.getAlgorithmByOID(this.signatureAlgorithm.algorithm_id);
             if(("name" in algorithmObject) === false)
-                return new Promise(function(resolve, reject) { reject("Unsupported public key algorithm: " + this.signatureAlgorithm.algorithm_id); });
+                return Promise.reject("Unsupported public key algorithm: " + _this.signatureAlgorithm.algorithm_id);
 
             var algorithm_name = algorithmObject.name;
 
             algorithm = in_window.org.pkijs.getAlgorithmParameters(algorithm_name, "importkey");
             if("hash" in algorithm.algorithm)
                 algorithm.algorithm.hash.name = sha_algorithm;
+
+            // #region Special case for ECDSA 
+            if(algorithm_name === "ECDSA")
+            {
+                // #region Get information about named curve 
+                if((subjectPublicKeyInfo.algorithm.algorithm_params instanceof in_window.org.pkijs.asn1.OID) === false)
+                    return Promise.reject("Incorrect type for ECDSA public key parameters");
+
+                var curveObject = in_window.org.pkijs.getAlgorithmByOID(subjectPublicKeyInfo.algorithm.algorithm_params.value_block.toString());
+                if(("name" in curveObject) === false)
+                    return Promise.reject("Unsupported named curve algorithm: " + subjectPublicKeyInfo.algorithm.algorithm_params.value_block.toString());
+                // #endregion 
+
+                algorithm.algorithm.namedCurve = curveObject.name;
+            }
+            // #endregion 
             // #endregion 
         }
         // #endregion 
@@ -4367,7 +4419,7 @@ function(in_window)
         // #endregion 
 
         return crypto.importKey("spki", publicKeyInfo_view, algorithm.algorithm, true, algorithm.usages);
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CERT.prototype.getKeyHash =
     function()
@@ -4377,11 +4429,11 @@ function(in_window)
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         return crypto.digest({ name: "sha-1" }, new Uint8Array(this.subjectPublicKeyInfo.subjectPublicKey.value_block.value_hex));
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CERT.prototype.toJSON =
     function()
@@ -4417,7 +4469,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -4435,8 +4487,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.REV_CERT.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -4448,7 +4500,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.REV_CERT.prototype.fromSchema =
     function(schema)
@@ -4463,7 +4515,7 @@ function(in_window)
                         names: {
                             utcTimeName: "revocationDate",
                             generalTimeName: "revocationDate"
-                    }
+                        }
                     }),
                     in_window.org.pkijs.schema.EXTENSIONS({
                         names: {
@@ -4491,7 +4543,7 @@ function(in_window)
                 this.crlEntryExtensions.push(new in_window.org.pkijs.simpl.EXTENSION({ schema: exts[i] }));
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.REV_CERT.prototype.toSchema =
     function()
@@ -4517,7 +4569,7 @@ function(in_window)
             value: sequence_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.REV_CERT.prototype.toJSON =
     function()
@@ -4536,7 +4588,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -4567,8 +4619,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.CRL.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -4596,7 +4648,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CRL.prototype.fromSchema =
     function(schema)
@@ -4641,7 +4693,7 @@ function(in_window)
         this.signatureAlgorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER({ schema: asn1.result["signatureAlgorithm"] });
         this.signatureValue = asn1.result["signatureValue"];
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CRL.prototype.encodeTBS =
     function()
@@ -4654,7 +4706,7 @@ function(in_window)
 
         output_array.push(this.signature.toSchema());
         output_array.push(this.issuer.toSchema());
-        output_array.push(this.thisUpdate.toSchema())
+        output_array.push(this.thisUpdate.toSchema());
 
         if("nextUpdate" in this)
             output_array.push(this.nextUpdate.toSchema());
@@ -4696,7 +4748,7 @@ function(in_window)
         return (new in_window.org.pkijs.asn1.SEQUENCE({
             value: output_array
         }));
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CRL.prototype.toSchema =
     function(encodeFlag)
@@ -4718,8 +4770,8 @@ function(in_window)
 
             tbs_schema = in_window.org.pkijs.fromBER(this.tbs).result;
         }
-        // #endregion 
-        // #region Create TBS schema via assembling from TBS parts 
+            // #endregion 
+            // #region Create TBS schema via assembling from TBS parts 
         else
             tbs_schema = in_window.org.pkijs.simpl.CRL.prototype.encodeTBS.call(this);
         // #endregion 
@@ -4733,14 +4785,11 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CRL.prototype.verify =
     function()
     {
-        /// <summary>!!! Works well in Chrome dev versions only (April 2014th) !!!</summary>
-        /// <returns type="Promise">Returns a new Promise object (in case of error), or a result of "crypto.subtle.veryfy" function</returns>
-
         // #region Global variables 
         var sequence = Promise.resolve();
 
@@ -4756,7 +4805,13 @@ function(in_window)
         if(arguments[0] instanceof Object)
         {
             if("issuerCertificate" in arguments[0]) // "issuerCertificate" must be of type "simpl.CERT"
+            {
                 subjectPublicKeyInfo = arguments[0].issuerCertificate.subjectPublicKeyInfo;
+
+                // The CRL issuer name and "issuerCertificate" subject name are not equal
+                if(this.issuer.isEqual(arguments[0].issuerCertificate.subject) == false)
+                    return Promise.resolve(false);
+            }
 
             // #region In case if there is only public key during verification 
             if("publicKeyInfo" in arguments[0])
@@ -4765,19 +4820,34 @@ function(in_window)
         }
 
         if((subjectPublicKeyInfo instanceof in_window.org.pkijs.simpl.PUBLIC_KEY_INFO) === false)
-            return new Promise(function(resolve, reject) { reject("Issuer's certificate must be provided as an input parameter"); });
+            return Promise.reject("Issuer's certificate must be provided as an input parameter");
+        // #endregion 
+
+        // #region Check the CRL for unknown critical extensions 
+        if("crlExtensions" in this)
+        {
+            for(var i = 0; i < this.crlExtensions.length; i++)
+            {
+                if(this.crlExtensions[i].critical)
+                {
+                    // We can not be sure that unknown extension has no value for CRL signature
+                    if(("parsedValue" in this.crlExtensions[i]) == false)
+                        return Promise.resolve(false);
+                }
+            }
+        }
         // #endregion 
 
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         // #region Find signer's hashing algorithm 
         var sha_algorithm = in_window.org.pkijs.getHashAlgorithm(this.signatureAlgorithm);
         if(sha_algorithm === "")
-            return new Promise(function(resolve, reject) { reject("Unsupported signature algorithm: " + _this.signatureAlgorithm.algorithm_id); });
+            return Promise.reject("Unsupported signature algorithm: " + _this.signatureAlgorithm.algorithm_id);
         // #endregion 
 
         // #region Import public key 
@@ -4787,13 +4857,29 @@ function(in_window)
                 // #region Get information about public key algorithm and default parameters for import
                 var algorithmObject = in_window.org.pkijs.getAlgorithmByOID(_this.signature.algorithm_id);
                 if(("name" in algorithmObject) === "")
-                    return new Promise(function(resolve, reject) { reject("Unsupported public key algorithm: " + _this.signature.algorithm_id); });
+                    return Promise.reject("Unsupported public key algorithm: " + _this.signature.algorithm_id);
 
                 var algorithm_name = algorithmObject.name;
 
                 var algorithm = in_window.org.pkijs.getAlgorithmParameters(algorithm_name, "importkey");
                 if("hash" in algorithm.algorithm)
                     algorithm.algorithm.hash.name = sha_algorithm;
+
+                // #region Special case for ECDSA 
+                if(algorithm_name === "ECDSA")
+                {
+                    // #region Get information about named curve 
+                    if((subjectPublicKeyInfo.algorithm.algorithm_params instanceof in_window.org.pkijs.asn1.OID) === false)
+                        return Promise.reject("Incorrect type for ECDSA public key parameters");
+
+                    var curveObject = in_window.org.pkijs.getAlgorithmByOID(subjectPublicKeyInfo.algorithm.algorithm_params.value_block.toString());
+                    if(("name" in curveObject) === false)
+                        return Promise.reject("Unsupported named curve algorithm: " + subjectPublicKeyInfo.algorithm.algorithm_params.value_block.toString());
+                    // #endregion 
+
+                    algorithm.algorithm.namedCurve = curveObject.name;
+                }
+                // #endregion 
                 // #endregion 
 
                 var publicKeyInfo_schema = subjectPublicKeyInfo.toSchema();
@@ -4840,7 +4926,7 @@ function(in_window)
                     }
                     catch(ex)
                     {
-                        return new Promise(function(resolve, reject) { reject(ex); });
+                        return Promise.reject(ex);
                     }
 
                     if("saltLength" in pssParameters)
@@ -4854,7 +4940,7 @@ function(in_window)
                     {
                         var hashAlgorithm = in_window.org.pkijs.getAlgorithmByOID(pssParameters.hashAlgorithm.algorithm_id);
                         if(("name" in hashAlgorithm) === false)
-                            return new Promise(function(resolve, reject) { reject("Unrecognized hash algorithm: " + pssParameters.hashAlgorithm.algorithm_id); });
+                            return Promise.reject("Unrecognized hash algorithm: " + pssParameters.hashAlgorithm.algorithm_id);
 
                         hash_algo = hashAlgorithm.name;
                     }
@@ -4872,7 +4958,7 @@ function(in_window)
         // #endregion 
 
         return sequence;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CRL.prototype.sign =
     function(privateKey, hashAlgorithm)
@@ -4886,7 +4972,7 @@ function(in_window)
 
         // #region Get a private key from function parameter 
         if(typeof privateKey === "undefined")
-            return new Promise(function(resolve, reject) { reject("Need to provide a private key for signing"); });
+            return Promise.reject("Need to provide a private key for signing");
         // #endregion 
 
         // #region Get hashing algorithm 
@@ -4897,7 +4983,7 @@ function(in_window)
             // #region Simple check for supported algorithm 
             var oid = in_window.org.pkijs.getOIDByAlgorithm({ name: hashAlgorithm });
             if(oid === "")
-                return new Promise(function(resolve, reject) { reject("Unsupported hash algorithm: " + hashAlgorithm); });
+                return Promise.reject("Unsupported hash algorithm: " + hashAlgorithm);
             // #endregion 
         }
         // #endregion 
@@ -4940,7 +5026,7 @@ function(in_window)
                     {
                         var hashAlgorithmOID = in_window.org.pkijs.getOIDByAlgorithm({ name: hashAlgorithm });
                         if(hashAlgorithmOID === "")
-                            return new Promise(function(resolve, reject) { reject("Unsupported hash algorithm: " + hashAlgorithm); });
+                            return Promise.reject("Unsupported hash algorithm: " + hashAlgorithm);
 
                         paramsObject.hashAlgorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER({
                             algorithm_id: hashAlgorithmOID,
@@ -4969,7 +5055,7 @@ function(in_window)
                 }
                 break;
             default:
-                return new Promise(function(resolve, reject) { reject("Unsupported signature algorithm: " + privateKey.algorithm.name); });
+                return Promise.reject("Unsupported signature algorithm: " + privateKey.algorithm.name);
         }
         // #endregion 
 
@@ -4980,7 +5066,7 @@ function(in_window)
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         // #region Signing TBS data on provided private key 
@@ -5000,11 +5086,11 @@ function(in_window)
             },
             function(error)
             {
-                return new Promise(function(resolve, reject) { reject("Signing error: " + error); });
+                return Promise.reject("Signing error: " + error);
             }
             );
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CRL.prototype.isCertificateRevoked =
     function()
@@ -5041,7 +5127,7 @@ function(in_window)
         // #endregion 
 
         return false;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.CRL.prototype.toJSON =
     function()
@@ -5078,7 +5164,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -5095,8 +5181,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.ATTRIBUTE.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -5106,7 +5192,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ATTRIBUTE.prototype.fromSchema =
     function(schema)
@@ -5130,7 +5216,7 @@ function(in_window)
         this.type = asn1.result["type"].value_block.toString();
         this.values = asn1.result["values"];
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ATTRIBUTE.prototype.toSchema =
     function()
@@ -5145,7 +5231,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.ATTRIBUTE.prototype.toJSON =
     function()
@@ -5159,7 +5245,7 @@ function(in_window)
             _object.values.push(this.values[i].toJSON());
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -5183,8 +5269,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.PKCS10.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -5203,7 +5289,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS10.prototype.fromSchema =
     function(schema)
@@ -5236,7 +5322,7 @@ function(in_window)
         this.signatureAlgorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER({ schema: asn1.result["signatureAlgorithm"] });
         this.signatureValue = asn1.result["signatureValue"];
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS10.prototype.encodeTBS =
     function()
@@ -5266,7 +5352,7 @@ function(in_window)
         // #endregion 
 
         return (new in_window.org.pkijs.asn1.SEQUENCE({ value: output_array }));
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS10.prototype.toSchema =
     function(encodeFlag)
@@ -5288,8 +5374,8 @@ function(in_window)
 
             tbs_schema = in_window.org.pkijs.fromBER(this.tbs).result;
         }
-        // #endregion 
-        // #region Create TBS schema via assembling from TBS parts 
+            // #endregion 
+            // #region Create TBS schema via assembling from TBS parts 
         else
             tbs_schema = in_window.org.pkijs.simpl.PKCS10.prototype.encodeTBS.call(this);
         // #endregion 
@@ -5303,7 +5389,7 @@ function(in_window)
             ]
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS10.prototype.verify =
     function()
@@ -5320,18 +5406,20 @@ function(in_window)
         var subjectPublicKeyInfo = this.subjectPublicKeyInfo;
         var signature = this.signatureValue;
         var tbs = this.tbs;
+
+        var ecdsaKeySize = 0;
         // #endregion 
 
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         // #region Find a correct hashing algorithm 
         sha_algorithm = in_window.org.pkijs.getHashAlgorithm(this.signatureAlgorithm);
         if(sha_algorithm === "")
-            return new Promise(function(resolve, reject) { reject("Unsupported signature algorithm: " + _this.signatureAlgorithm.algorithm_id); });
+            return Promise.reject("Unsupported signature algorithm: " + _this.signatureAlgorithm.algorithm_id);
         // #endregion 
 
         // #region Importing public key 
@@ -5341,13 +5429,29 @@ function(in_window)
                 // #region Get information about public key algorithm and default parameters for import
                 var algorithmObject = in_window.org.pkijs.getAlgorithmByOID(_this.signatureAlgorithm.algorithm_id);
                 if(("name" in algorithmObject) === false)
-                    return new Promise(function(resolve, reject) { reject("Unsupported public key algorithm: " + _this.signatureAlgorithm.algorithm_id); });
+                    return Promise.reject("Unsupported public key algorithm: " + _this.signatureAlgorithm.algorithm_id);
 
                 var algorithm_name = algorithmObject.name;
 
                 var algorithm = in_window.org.pkijs.getAlgorithmParameters(algorithm_name, "importkey");
                 if("hash" in algorithm.algorithm)
                     algorithm.algorithm.hash.name = sha_algorithm;
+
+                // #region Special case for ECDSA 
+                if(algorithm_name === "ECDSA")
+                {
+                    // #region Get information about named curve 
+                    if((subjectPublicKeyInfo.algorithm.algorithm_params instanceof in_window.org.pkijs.asn1.OID) === false)
+                        return Promise.reject("Incorrect type for ECDSA public key parameters");
+
+                    var curveObject = in_window.org.pkijs.getAlgorithmByOID(subjectPublicKeyInfo.algorithm.algorithm_params.value_block.toString());
+                    if(("name" in curveObject) === false)
+                        return Promise.reject("Unsupported named curve algorithm: " + subjectPublicKeyInfo.algorithm.algorithm_params.value_block.toString());
+                    // #endregion 
+
+                    algorithm.algorithm.namedCurve = curveObject.name;
+                }
+                // #endregion 
                 // #endregion 
 
                 var publicKeyInfo_schema = subjectPublicKeyInfo.toSchema();
@@ -5390,7 +5494,7 @@ function(in_window)
                     }
                     catch(ex)
                     {
-                        return new Promise(function(resolve, reject) { reject(ex); });
+                        return Promise.reject(ex);
                     }
 
                     if("saltLength" in pssParameters)
@@ -5404,7 +5508,7 @@ function(in_window)
                     {
                         var hashAlgorithm = in_window.org.pkijs.getAlgorithmByOID(pssParameters.hashAlgorithm.algorithm_id);
                         if(("name" in hashAlgorithm) === false)
-                            return new Promise(function(resolve, reject) { reject("Unrecognized hash algorithm: " + pssParameters.hashAlgorithm.algorithm_id); });
+                            return Promise.reject("Unrecognized hash algorithm: " + pssParameters.hashAlgorithm.algorithm_id);
 
                         hash_algo = hashAlgorithm.name;
                     }
@@ -5422,7 +5526,7 @@ function(in_window)
         // #endregion   
 
         return sequence;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS10.prototype.sign =
     function(privateKey, hashAlgorithm)
@@ -5436,7 +5540,7 @@ function(in_window)
 
         // #region Get a private key from function parameter 
         if(typeof privateKey === "undefined")
-            return new Promise(function(resolve, reject) { reject("Need to provide a private key for signing"); });
+            return Promise.reject("Need to provide a private key for signing");
         // #endregion 
 
         // #region Get hashing algorithm 
@@ -5447,7 +5551,7 @@ function(in_window)
             // #region Simple check for supported algorithm 
             var oid = in_window.org.pkijs.getOIDByAlgorithm({ name: hashAlgorithm });
             if(oid === "")
-                return new Promise(function(resolve, reject) { reject("Unsupported hash algorithm: " + hashAlgorithm); });
+                return Promise.reject("Unsupported hash algorithm: " + hashAlgorithm);
             // #endregion 
         }
         // #endregion 
@@ -5489,7 +5593,7 @@ function(in_window)
                     {
                         var hashAlgorithmOID = in_window.org.pkijs.getOIDByAlgorithm({ name: hashAlgorithm });
                         if(hashAlgorithmOID === "")
-                            return new Promise(function(resolve, reject) { reject("Unsupported hash algorithm: " + hashAlgorithm); });
+                            return Promise.reject("Unsupported hash algorithm: " + hashAlgorithm);
 
                         paramsObject.hashAlgorithm = new in_window.org.pkijs.simpl.ALGORITHM_IDENTIFIER({
                             algorithm_id: hashAlgorithmOID,
@@ -5517,7 +5621,7 @@ function(in_window)
                 }
                 break;
             default:
-                return new Promise(function(resolve, reject) { reject("Unsupported signature algorithm: " + privateKey.algorithm.name); });
+                return Promise.reject("Unsupported signature algorithm: " + privateKey.algorithm.name);
         }
         // #endregion 
 
@@ -5528,7 +5632,7 @@ function(in_window)
         // #region Get a "crypto" extension 
         var crypto = in_window.org.pkijs.getCrypto();
         if(typeof crypto == "undefined")
-            return new Promise(function(resolve, reject) { reject("Unable to create WebCrypto object"); });
+            return Promise.reject("Unable to create WebCrypto object");
         // #endregion 
 
         // #region Signing TBS data on provided private key 
@@ -5546,11 +5650,11 @@ function(in_window)
             },
             function(error)
             {
-                return new Promise(function(resolve, reject) { reject("Signing error: " + error); });
+                return Promise.reject("Signing error: " + error);
             }
             );
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS10.prototype.toJSON =
     function()
@@ -5573,7 +5677,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
@@ -5592,8 +5696,8 @@ function(in_window)
         // #region If input argument array contains "schema" for this object 
         if((arguments[0] instanceof Object) && ("schema" in arguments[0]))
             in_window.org.pkijs.simpl.PKCS8.prototype.fromSchema.call(this, arguments[0].schema);
-        // #endregion 
-        // #region If input argument array contains "native" values for internal properties 
+            // #endregion 
+            // #region If input argument array contains "native" values for internal properties 
         else
         {
             if(arguments[0] instanceof Object)
@@ -5607,7 +5711,7 @@ function(in_window)
             }
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS8.prototype.fromSchema =
     function(schema)
@@ -5647,7 +5751,7 @@ function(in_window)
                 this.attributes.push(new in_window.org.pkijs.simpl.ATTRIBUTE({ schema: attrs[i] }));
         }
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS8.prototype.toSchema =
     function()
@@ -5682,7 +5786,7 @@ function(in_window)
             value: output_array
         }));
         // #endregion 
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.simpl.PKCS8.prototype.toJSON =
     function()
@@ -5702,7 +5806,7 @@ function(in_window)
         }
 
         return _object;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************

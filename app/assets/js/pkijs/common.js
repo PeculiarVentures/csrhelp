@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2014, GMO GlobalSign
  * Copyright (c) 2015, Peculiar Ventures
  * All rights reserved.
@@ -63,6 +63,60 @@ function(in_window)
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
+    // #region Settings for "crypto engine" 
+    //**************************************************************************************
+    local.engine = {
+        name: "none",
+        crypto: null,
+        subtle: null
+    };
+
+    if(typeof window != "undefined")
+    {
+        if("crypto" in window)
+        {
+            var engineName = "webcrypto";
+            var cryptoObject = window.crypto;
+            var subtleObject = null;
+
+            // Apple Safari support
+            if("webkitSubtle" in window.crypto)
+                subtleObject = window.crypto.webkitSubtle;
+
+            if("subtle" in window.crypto)
+                subtleObject = window.crypto.subtle;
+
+            local.engine = {
+                name: engineName,
+                crypto: cryptoObject,
+                subtle: subtleObject
+            };
+        }
+    }
+    //**************************************************************************************
+    in_window.org.pkijs.setEngine =
+    function(name, crypto, subtle)
+    {
+        /// <summary>Setting the global "crypto engine" parameters</summary>
+        /// <param name="name" type="String">Auxiliary name for "crypto engine"</param>
+        /// <param name="crypto" type="Object">Object handling all root cryptographic requests (in fact currently it must handle only "getRandomValues")</param>
+        /// <param name="subtle" type="Object">Object handling all main cryptographic requests</param>
+
+        local.engine = {
+            name: name,
+            crypto: crypto,
+            subtle: subtle
+        };
+    };
+    //**************************************************************************************
+    in_window.org.pkijs.getEngine =
+    function()
+    {
+        return local.engine;
+    };
+    //**************************************************************************************
+    // #endregion 
+    //**************************************************************************************
     // #region Declaration of common functions 
     //**************************************************************************************
     in_window.org.pkijs.emptyObject =
@@ -76,7 +130,7 @@ function(in_window)
         {
             return {};
         };
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getNames =
     function(arg)
@@ -89,19 +143,19 @@ function(in_window)
             names = (arg.names || {});
 
         return names;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.inheriteObjectFields =
     function(from)
     {
-        for(i in from.prototype)
+        for(var i in from.prototype)
         {
             if(typeof from.prototype[i] === "function")
                 continue;
 
             this[i] = from.prototype[i];
         }
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getUTCDate =
     function(date)
@@ -111,7 +165,7 @@ function(in_window)
 
         var current_date = date;
         return new Date(current_date.getTime() + (current_date.getTimezoneOffset() * 60000));
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.padNumber =
     function(input_number, full_length)
@@ -126,7 +180,7 @@ function(in_window)
         var padding_string = padding.join('');
 
         return padding_string.concat(str);
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getValue =
     function(args, item, default_value)
@@ -135,7 +189,7 @@ function(in_window)
             return args[item];
         else
             return default_value;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.isEqual_view =
     function(input_view1, input_view2)
@@ -154,7 +208,7 @@ function(in_window)
         }
 
         return true;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.isEqual_buffer =
     function(input_buffer1, input_buffer2)
@@ -170,7 +224,7 @@ function(in_window)
         var view2 = new Uint8Array(input_buffer2);
 
         return in_window.org.pkijs.isEqual_view(view1, view2);
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.concat_buffers =
     function(input_buf1, input_buf2)
@@ -192,7 +246,7 @@ function(in_window)
             ret_view[input_buf1.byteLength + j] = input_view2[j];
 
         return ret_buf;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.copyBuffer =
     function(input_buffer)
@@ -206,25 +260,18 @@ function(in_window)
             resultView[i] = inputView[i];
 
         return result;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getCrypto =
     function()
     {
         var crypto_temp;
 
-        if("crypto" in in_window)
-        {
-            // Apple Safari support
-            if("webkitSubtle" in in_window.crypto)
-                crypto_temp = in_window.crypto.webkitSubtle;
-
-            if("subtle" in in_window.crypto)
-                crypto_temp = in_window.crypto.subtle;
-        }
+        if(local.engine.subtle !== null)
+            crypto_temp = local.engine.subtle;
 
         return crypto_temp;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.stringPrep =
     function(input_string)
@@ -238,7 +285,7 @@ function(in_window)
         result = result.toLowerCase();
 
         return result;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.bufferToHexCodes =
     function(input_buffer, input_offset, input_lenght)
@@ -254,7 +301,7 @@ function(in_window)
         }
 
         return result;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.bufferFromHexCodes =
     function(hexString)
@@ -313,18 +360,18 @@ function(in_window)
         // #endregion 
 
         return resultBuffer;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getRandomValues =
     function(view)
     {
         /// <param name="view" type="Uint8Array">New array which gives a length for random value</param>
 
-        if("crypto" in in_window)
-            return in_window.crypto.getRandomValues(view);
+        if(local.engine.crypto !== null)
+            return local.engine.crypto.getRandomValues(view);
         else
             throw new Error("No support for Web Cryptography API");
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getAlgorithmParameters =
     function(algorithmName, operation)
@@ -350,7 +397,7 @@ function(in_window)
                                 publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
                                 hash: {
                                     name: "SHA-256"
-                                },
+                                }
                             },
                             usages: ["sign", "verify"]
                         };
@@ -363,7 +410,7 @@ function(in_window)
                                 name: "RSASSA-PKCS1-v1_5",
                                 hash: {
                                     name: "SHA-256"
-                                },
+                                }
                             },
                             usages: ["verify"] // For importKey("pkcs8") usage must be "sign" only
                         };
@@ -413,7 +460,7 @@ function(in_window)
                                 name: "RSA-PSS",
                                 hash: {
                                     name: "SHA-1"
-                                },
+                                }
                             },
                             usages: ["verify"] // For importKey("pkcs8") usage must be "sign" only
                         };
@@ -435,7 +482,7 @@ function(in_window)
                     case "decrypt":
                         result = {
                             algorithm: {
-                                name: "RSA-OAEP",
+                                name: "RSA-OAEP"
                             },
                             usages: ["encrypt", "decrypt"]
                         };
@@ -575,6 +622,7 @@ function(in_window)
                             },
                             usages: ["encrypt", "decrypt", "wrapKey", "unwrapKey"]
                         };
+                        break;
                     default:
                         return {
                             algorithm: {
@@ -607,6 +655,7 @@ function(in_window)
                             },
                             usages: ["encrypt", "decrypt", "wrapKey", "unwrapKey"]
                         };
+                        break;
                     default:
                         return {
                             algorithm: {
@@ -639,6 +688,7 @@ function(in_window)
                             },
                             usages: ["encrypt", "decrypt", "wrapKey", "unwrapKey"]
                         };
+                        break;
                     default:
                         return {
                             algorithm: {
@@ -680,7 +730,7 @@ function(in_window)
                     case "verify":
                         result = {
                             algorithm: {
-                                name: "HMAC",
+                                name: "HMAC"
                             },
                             usages: ["sign", "verify"]
                         };
@@ -691,7 +741,7 @@ function(in_window)
                         result = {
                             algorithm: {
                                 name: "HMAC",
-                                length: 10,
+                                length: 32,
                                 hash: {
                                     name: "SHA-256"
                                 }
@@ -759,7 +809,7 @@ function(in_window)
         }
 
         return result;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getOIDByAlgorithm =
     function(algorithm)
@@ -950,7 +1000,7 @@ function(in_window)
         }
 
         return result;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getAlgorithmByOID =
     function(oid)
@@ -1197,17 +1247,20 @@ function(in_window)
             // #region Special case - OIDs for ECC curves 
             case "1.2.840.10045.3.1.7":
                 result = {
-                    name: "P-256"
+                    name: "P-256",
+                    size: 32
                 };
                 break;
             case "1.3.132.0.34":
                 result = {
-                    name: "P-384"
+                    name: "P-384",
+                    size: 48
                 };
                 break;
             case "1.3.132.0.35":
                 result = {
-                    name: "P-521"
+                    name: "P-521",
+                    size: 66
                 };
                 break;
             // #endregion 
@@ -1215,7 +1268,7 @@ function(in_window)
         }
 
         return result;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getHashAlgorithm =
     function(signatureAlgorithm)
@@ -1270,14 +1323,11 @@ function(in_window)
         }
 
         return result;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.createCMSECDSASignature =
     function(signatureBuffer)
     {
-        /// <summary>Create CMS ECDSA signature from WebCrypto ECDSA signature</summary>
-        /// <param name="signatureBuffer" type="ArrayBuffer">WebCrypto result of "sign" function</param>
-
         // #region Initial check for correct length 
         if((signatureBuffer.byteLength % 2) != 0)
             return new ArrayBuffer(0);
@@ -1291,57 +1341,62 @@ function(in_window)
 
         var r_buffer = new ArrayBuffer(length);
         var r_view = new Uint8Array(r_buffer);
+        r_view.set(new Uint8Array(signatureBuffer, 0, length));
         var r_corrected_buffer;
         var r_corrected_view;
 
         var s_buffer = new ArrayBuffer(length);
         var s_view = new Uint8Array(s_buffer);
+        s_view.set(new Uint8Array(signatureBuffer, length, length));
         var s_corrected_buffer;
         var s_corrected_view;
         // #endregion   
 
         // #region Get "r" part of ECDSA signature 
-        for(; i < length; i++)
-            r_view[i] = signatureView[i];
-
-        if(r_view[0] & 0x80)
+        switch(true)
         {
-            r_corrected_buffer = new ArrayBuffer(length + 1);
-            r_corrected_view = new Uint8Array(r_corrected_buffer);
+            case ((r_view[0] & 0x80) !== 0):
+                r_corrected_buffer = new ArrayBuffer(length + 1);
+                r_corrected_view = new Uint8Array(r_corrected_buffer);
 
-            r_corrected_view[0] = 0x00;
+                r_corrected_view[0] = 0x00;
 
-            for(var j = 0; j < length; j++)
-                r_corrected_view[j + 1] = r_view[j];
+                r_corrected_view.set(r_view, 1);
+                break;
+            case ((r_view[0] === 0x00) && ((r_view[1] & 0x80) === 0)):
+                r_corrected_buffer = new ArrayBuffer(length - 1);
+                r_corrected_view = new Uint8Array(r_corrected_buffer);
+
+                r_corrected_view.set(new Uint8Array(signatureBuffer, 1, length - 1));
+                break;
+            default:
+                r_corrected_buffer = r_buffer;
+                r_corrected_view = r_view;
         }
-        else
-        {
-            r_corrected_buffer = r_buffer;
-            r_corrected_view = r_view;
-        }
-        // #endregion 
+        // #endregion   
 
         // #region Get "s" part of ECDSA signature 
-        for(; i < signatureBuffer.byteLength; i++)
-            s_view[i - length] = signatureView[i];
-
-
-        if(s_view[0] & 0x80)
+        switch(true)
         {
-            s_corrected_buffer = new ArrayBuffer(length + 1);
-            s_corrected_view = new Uint8Array(s_corrected_buffer);
+            case ((s_view[0] & 0x80) !== 0):
+                s_corrected_buffer = new ArrayBuffer(length + 1);
+                s_corrected_view = new Uint8Array(s_corrected_buffer);
 
-            s_corrected_view[0] = 0x00;
+                s_corrected_view[0] = 0x00;
 
-            for(var j = 0; j < length; j++)
-                s_corrected_view[j + 1] = s_view[j];
+                s_corrected_view.set(s_view, 1);
+                break;
+            case ((s_view[0] === 0x00) && ((s_view[1] & 0x80) === 0)):
+                s_corrected_buffer = new ArrayBuffer(length - 1);
+                s_corrected_view = new Uint8Array(s_corrected_buffer);
+
+                s_corrected_view.set(new Uint8Array(signatureBuffer, 1, length - 1));
+                break;
+            default:
+                s_corrected_buffer = s_buffer;
+                s_corrected_view = s_view;
         }
-        else
-        {
-            s_corrected_buffer = s_buffer;
-            s_corrected_view = s_view;
-        }
-        // #endregion 
+        // #endregion   
 
         // #region Create ASN.1 structure of CMS ECDSA signature 
         var r_integer = new in_window.org.pkijs.asn1.INTEGER();
@@ -1366,51 +1421,64 @@ function(in_window)
     in_window.org.pkijs.createECDSASignatureFromCMS =
     function(cmsSignature)
     {
-        /// <summary>Create a single ArrayBuffer from CMS ECDSA signature</summary>
-        /// <param name="cmsSignature" type="in_window.org.pkijs.asn1.SEQUENCE">ASN.1 SEQUENCE contains CMS ECDSA signature</param>
-
         // #region Initial variables 
-        var length = 0;
-
-        var r_start = 0;
-        var s_start = 0;
-
-        var r_length = cmsSignature.value_block.value[0].value_block.value_hex.byteLength;
-        var s_length = cmsSignature.value_block.value[1].value_block.value_hex.byteLength;
+        var sBuffer;
+        var rBuffer;
         // #endregion 
 
-        // #region Get length of final "ArrayBuffer" 
-        var r_view = new Uint8Array(cmsSignature.value_block.value[0].value_block.value_hex);
-        if((r_view[0] === 0x00) && (r_view[1] & 0x80))
+        // #region Check input variables 
+        if((cmsSignature instanceof in_window.org.pkijs.asn1.SEQUENCE) === false)
+            return new ArrayBuffer(0);
+
+        if(cmsSignature.value_block.value.length !== 2)
+            return new ArrayBuffer(0);
+
+        if((cmsSignature.value_block.value[0] instanceof in_window.org.pkijs.asn1.INTEGER) === false)
+            return new ArrayBuffer(0);
+
+        if((cmsSignature.value_block.value[1] instanceof in_window.org.pkijs.asn1.INTEGER) === false)
+            return new ArrayBuffer(0);
+        // #endregion 
+
+        // #region Aux functions 
+        function transformINTEGER(integer)
         {
-            length = r_length - 1;
-            r_start = 1;
-        }
-        else
-            length = r_length;
+            var view = new Uint8Array(integer.value_block.value_hex);
 
-        var s_view = new Uint8Array(cmsSignature.value_block.value[1].value_block.value_hex);
-        if((s_view[0] === 0x00) && (s_view[1] & 0x80))
-        {
-            length += s_length - 1;
-            s_start = 1;
+            switch(integer.value_block.value_hex.byteLength)
+            {
+                case 32:
+                case 48:
+                case 66:
+                    return integer.value_block.value_hex;
+                    break;
+                case 33:
+                case 49:
+                case 67:
+                    return (view.slice(1)).buffer;
+                    break;
+                case 31:
+                case 47:
+                case 65:
+                    {
+                        var updatedBuffer = new ArrayBuffer(integer.value_block.value_hex.byteLength + 1);
+                        var updatedView = new Uint8Array(updatedBuffer);
+
+                        updatedView.set(view, 1);
+
+                        return updatedBuffer;
+                    }
+                    break;
+                default:
+                    return new ArrayBuffer(0);
+            }
         }
-        else
-            length += s_length;
         // #endregion 
 
-        // #region Copy values from CMS ECDSA signature 
-        var result = new ArrayBuffer(length);
-        var result_view = new Uint8Array(result);
+        rBuffer = transformINTEGER(cmsSignature.value_block.value[0]);
+        sBuffer = transformINTEGER(cmsSignature.value_block.value[1]);
 
-        for(var i = r_start; i < r_length; i++)
-            result_view[i - r_start] = r_view[i];
-
-        for(var i = s_start; i < s_length; i++)
-            result_view[i - s_start + r_length - r_start] = s_view[i];
-        // #endregion 
-
-        return result;
+        return in_window.org.pkijs.concat_buffers(rBuffer, sBuffer);
     }
     //**************************************************************************************
     in_window.org.pkijs.getEncryptionAlgorithm =
@@ -1457,7 +1525,7 @@ function(in_window)
         }
 
         return result;
-    }
+    };
     //**************************************************************************************
     in_window.org.pkijs.getAlgorithmByEncryptionOID =
     function(oid)
@@ -1483,7 +1551,7 @@ function(in_window)
         }
 
         return result;
-    }
+    };
     //**************************************************************************************
     // #endregion 
     //**************************************************************************************
