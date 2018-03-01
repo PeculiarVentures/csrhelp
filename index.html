@@ -62,7 +62,7 @@
 						<label>Hostname</label>
 						<input name="hostname" required
 							ng-model="certificate.hostname" 
-						 	ng-pattern="(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)" id="hostname"
+						 	ng-pattern="/(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)/" id="hostname"
 						 	ng-change="onBlurOrChange();hideResult()"
 						 	ng-blur="onBlurOrChange()">
 						<div ng-messages="certificateForm.hostname.$error">
